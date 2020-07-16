@@ -1,8 +1,12 @@
+# -*- coding: utf-8 -*-
 from State import State
 
 class DFA:
 
-    def __init__(self, states, transitions, initialState):  
+    DIGIT = '0123456789'
+    ALPHA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+    def __init__(self, states, transitions, initialState, alphabet = True):  
         self.states = {}
         for state in states:
             self.states[state] = State(state)
@@ -14,7 +18,7 @@ class DFA:
         self.currentState = self.states[initialState]
 
      
-    def readCharacter(self,char):
+    def readChar(self,char):
         self.currentState = self.currentState.shift(char)
 
 
@@ -31,5 +35,5 @@ transitions = {
 
 DFA = DFA(states, transitions, 'A')
 print(DFA.currentState.name)
-DFA.readCharacter('0')
+DFA.readChar('0')
 print(DFA.currentState.name)
