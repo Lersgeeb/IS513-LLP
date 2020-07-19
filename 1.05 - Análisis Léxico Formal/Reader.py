@@ -15,17 +15,18 @@ class Reader:
         f.close()
 
         self.charList = list(text)
-        
-        print(self.charList)
 
         return self
 
     #retorna el siguiente caracter del primer elemento de la lista de caracteres y lo borra
     def nextChar(self):
         if len(self.charList) > 0:
-            while(self.charList[0] == '\n'):
+            '''
+            while( (self.charList[0] == '\n' or self.charList[0] == '\t') and len(self.charList) > 0):
+                if(len(self.charList) == 1):
+                    break
                 self.charList.pop(0)
-                
+            '''     
             return self.charList.pop(0)
         else:
             return False
