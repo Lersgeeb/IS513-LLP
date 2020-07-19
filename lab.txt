@@ -1,0 +1,53 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	int minPromApr = 75;
+	int minPromRec = 60;
+	
+	int exa1;
+	int exa2;
+	int proy;
+	
+	int prom;
+	
+	for( int i=0; i<3; i++ ){
+		
+		do{
+			cout<<"Ingrese nota del examen1: ";
+			cin>>exa1;
+		}
+		while(exa1 > 60);
+			
+		do{
+			cout<<"Ingrese nota del examen2: ";
+			cin>>exa2;
+		}
+		while(exa2 > 60);
+		
+		do{
+			cout<<"Ingrese nota del proyecto: ";
+			cin>>proy;
+		}
+		while(proy > 40);
+		
+		prom = (exa1+exa2)/2 + proy;
+			
+		if(prom > minPromApr){
+			cout<<"Nota final "<<prom<<" Aprobado"<<endl<<endl;
+		}
+		else if(prom > minPromRec){
+			cout<<"Nota final "<<prom<<" Recuperacion"<<endl<<endl;
+		}
+		else{
+			cout<<"Nota final "<<prom<<" Reprobado"<<endl<<endl;
+		}
+			
+		
+	}
+
+	return 0;
+	
+}
+

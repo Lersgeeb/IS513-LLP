@@ -1,0 +1,30 @@
+#
+keyword
+identifier
+{
+}
+;
+,
+:
+::
+digit,
+litFloat,
+string 
+
+Operador de asignación. 
+Operador de suma. 
+Operador de resta. 
+Operador de multiplicación. 
+Operador de división. 
+Operador acumulador. 
+Operador menor igual que. 
+Operador menor que. 
+Operador mayor igual que. 
+Operador mayor que. 
+Operador de comparación. 
+Símbolo de fin de instrucción. 
+Símbolo de inicio de agrupación. 
+Símbolo de fin de agrupación. 
+Token de definición de función. 
+Símbolo de apertura de statements. 
+
