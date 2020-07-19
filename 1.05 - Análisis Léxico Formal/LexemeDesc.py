@@ -20,7 +20,8 @@ class LexemeDesc:
             'private', 'protected', 'public', 'reinterpret_cast',
             'static_cast', 'template', 'this', 'throw',
             'true', 'try', 'typeid', 'typename', 
-            'using', 'virtual', 'wchar_t','include', 'cout', 'cin'
+            'using', 'virtual', 'wchar_t','include', 
+            'ifndef','endif','cout', 'cin',
         }
 
         if(ident in keyword):

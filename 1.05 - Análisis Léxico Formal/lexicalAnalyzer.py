@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-    ! Token Reader (Analizador Lexico)
+    ! Analizador Lexico
 
-    * Reconocimiento de token basado en los conceptos planteados por el libro de lenguajes de programación 
-    * El presente analizador lexico solo reconocera elementos de asignacion, identificadores , numeros literales y enteros 
+    * Reconocimiento de token
 
     ? Pasos  
-    ? Crear las diferentes clases/estados en el que el caracter puede estar
+    ? 
 
 
     @author Gabriel
-    @date 2020/07/17 @version 0.1
+    @date 2020/07/19 @version 0.1
 """
 
 from DFA import DFA
@@ -27,6 +26,8 @@ class LexicalAutomata(DFA):
         super().__init__(DesignedLexicalAutomata.STATES, DesignedLexicalAutomata.TRANSITIONS, 'start')
         self.reader = ( Reader() ).read()
         self.lexDesc = LexemeDesc()
+        self.lineCount = 1
+        self.error = False
 
 
     def run(self, debug = False):
@@ -44,8 +45,16 @@ class LexicalAutomata(DFA):
                     prevState = self.getStateName()
                     self.changeState(char)
                     actualState = self.getStateName()
-                    
-                if(actualState=='waitFloat'):
+
+                    if(char == '\n'):
+                        self.lineCount += 1
+
+
+                if(actualState=='error'):
+                    self.error = "ERROR: se ha encontrado un token desconocido en la linea %s: %s" % (self.lineCount, char)
+                    quit(self.error)
+
+                elif(actualState=='waitFloat'):
                     stringTemp += char
                 
                 elif(prevState=='waitFloat' and actualState=='float'):
@@ -120,16 +129,19 @@ class LexicalAutomata(DFA):
 
                 
     def printLexemDesc(self):
-        tokenDescClean = [
-            ['#','Token', 'Descripción', 'Lexema'],
-            ['--', '---------', '--------------------------------------', '------------------------']
-        ]
-        for desc in self.tokenDesc:
-            if(desc):
-                tokenDescClean.append(desc)
+        if(not self.error):
+            tokenDescClean = [
+                ['#','Token', 'Descripción', 'Lexema'],
+                ['--', '---------', '--------------------------------------', '------------------------']
+            ]
+            for desc in self.tokenDesc:
+                if(desc):
+                    tokenDescClean.append(desc)
 
-        print(tabulate.tabulate(tokenDescClean))
+            print(tabulate.tabulate(tokenDescClean))
     
+        else:
+            print(self.error)
 
 
 lexical = LexicalAutomata()
