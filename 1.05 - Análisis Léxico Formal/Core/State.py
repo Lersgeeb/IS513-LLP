@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+    ! Clase de STATE
+
+    * Clase para crear los estados necesarios para un autómata finito 
+
+    @author Gabriel
+    @date 2020/07/19 @version 0.1
+"""
+
 class State:
 
     DIGIT = '0123456789'

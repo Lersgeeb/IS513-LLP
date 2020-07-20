@@ -1,5 +1,15 @@
 # -*- coding: utf-8 -*-
-from State import State
+from Core.State import State
+
+"""
+    ! Clase Abstracta de un Automata Finito Determinista
+
+    ? Cuenta con las funcionalidades basicos para manipular el automata
+    ? Brinda la posibilidad de crear cualquier autómata dado un conjunto de estados con sus transiciones respectivas
+
+    @author Gabriel
+    @date 2020/07/19 @version 0.1
+"""
 
 class DFA:
 
@@ -37,6 +47,7 @@ class DFA:
     def getFinalState(self):
         return self.currentState.finalState
     
+    #Obtener el nombre de estado
     def getStateName(self):
         return self.currentState.name
     

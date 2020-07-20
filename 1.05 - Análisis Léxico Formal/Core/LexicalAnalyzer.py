@@ -1,26 +1,32 @@
 # -*- coding: utf-8 -*-
 """
-    ! Analizador Lexico
+    ! Analizador Léxico
 
-    * Reconocimiento de token
+    * Clase que extiende a la clase abstracta de DFA añadiendo funcionalidades que permiten 
+    * la identificación de los distintos Token pertenecientes al lenguaje de c++  
+    
+    * Al programa se le dará como parámetro un archivo de c++ para llevar a cabo el análisis léxico del código.
 
-    ? Pasos  
-    ? 
-
+    * Cada token encontrado será almacenado en una lista con una descripción detallada de su funcionalidad, además
+    * del numero encontrado y la respectiva lexema
+    
+    
+    ? Para una mayor comprensión sobre la estructura del autómata mirar el diagrama de estado
+    ? dentro de los archivos y el archivo DesignedLexicalAutomata.py
 
     @author Gabriel
     @date 2020/07/19 @version 0.1
 """
 
-from DFA import DFA
-from Reader import Reader
-from DesignedLexicalAutomata import DesignedLexicalAutomata
-from LexemeDesc import LexemeDesc
+from Core.DFA import DFA
+from Core.Reader import Reader
+from Core.DesignedLexicalAutomata import DesignedLexicalAutomata
+from Core.LexemeDesc import LexemeDesc
 import tabulate
 
-class LexicalAutomata(DFA):  
+class LexicalAnalyzer(DFA):  
     
-    #crea un automata en especifico cuya tarea sera encontrar strings 
+    #Crea un autómata en específico cuya tarea será encontrar strings
     def __init__(self):
 
         super().__init__(DesignedLexicalAutomata.STATES, DesignedLexicalAutomata.TRANSITIONS, 'start')
@@ -29,7 +35,7 @@ class LexicalAutomata(DFA):
         self.lineCount = 1
         self.error = False
 
-
+    #Se encarga de encontrar y guardar la descripción de cada token identificado en una lista. 
     def run(self, debug = False):
             self.tokenDesc = []
             stringTemp = []
@@ -39,7 +45,7 @@ class LexicalAutomata(DFA):
             while char:
                 
                 if(debug):
-                    print("Cambiar estado %s con el caracter: %s" % (self.getStateName() ,char))
+                    print("Cambiar estado %s con el carácter: %s" % (self.getStateName() ,char))
 
                 if(char):
                     prevState = self.getStateName()
@@ -51,7 +57,7 @@ class LexicalAutomata(DFA):
 
 
                 if(actualState=='error'):
-                    self.error = "ERROR: se ha encontrado un token desconocido en la linea %s: %s" % (self.lineCount, char)
+                    self.error = "ERROR: se ha encontrado un token desconocido en la línea %s: %s" % (self.lineCount, char)
                     quit(self.error)
 
                 elif(actualState=='waitFloat'):
@@ -98,9 +104,7 @@ class LexicalAutomata(DFA):
 
                 char = self.reader.nextChar()
 
-            
-
-
+    #Obtiene una descripción detallada de cada Token
     def getDescription(self, state, lexem):
         
         if(state=='ident'):
@@ -127,7 +131,7 @@ class LexicalAutomata(DFA):
         elif(state=='int'):
             return self.lexDesc.intDesc(lexem)
 
-                
+    #Imprime la descripción de cada token encontrado apoyándose en el uso de la librería tabulate   
     def printLexemDesc(self):
         if(not self.error):
             tokenDescClean = [
@@ -142,9 +146,3 @@ class LexicalAutomata(DFA):
     
         else:
             print(self.error)
-
-
-lexical = LexicalAutomata()
-
-lexical.run()
-lexical.printLexemDesc()

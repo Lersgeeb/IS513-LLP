@@ -1,4 +1,17 @@
-from AlphabetSets import AlphabetSets
+# -*- coding: utf-8 -*-
+"""
+    ! Diseño del autómata para análisis léxico
+
+    * States: los estados existentes del autómata
+    * Transitions: las transiciones posibles que puede contener cada estado dependiendo de un carácter dado
+    
+    ? Para una mayor comprensión sobre la estructura del autómata mirar el diagrama de estado
+    ? dentro de los archivos 
+
+    @author Gabriel
+    @date 2020/07/19 @version 0.1
+"""
+from Core.AlphabetSets import AlphabetSets
 
 class DesignedLexicalAutomata:
     

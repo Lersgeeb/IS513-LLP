@@ -1,8 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+    ! Descripción de Léxemas
+    
+    ? Clase con métodos que retornan una descripción detallada dependiendo el lexema dado
+
+    @author Gabriel
+    @date 2020/07/19 @version 0.1
+"""
+
 class LexemeDesc:
 
     def __init__(self):
         self.countlexem = 0
 
+    #Obtiene la descripción de los identificadores o Keyword
     def isKeyword(self, ident):
         keyword = { 
             'auto', 'double', 'int', 'struct',
@@ -31,6 +42,7 @@ class LexemeDesc:
             self.countlexem +=  1
             return [self.countlexem, 'IDENT' , 'Identificador de Usuario', ident]
     
+    #Obtiene la descripción de los operadores aritméticos
     def operator(self, operator):
         operatorDesc = {
             '+': 'Operador aritmético de Suma.',
@@ -48,6 +60,7 @@ class LexemeDesc:
         else:
             return False
 
+    #Obtiene la descripción de los operadores condicionales
     def conditionAssign(self, conditionAssign):
         conditionAssignDesc = {
             '==': 'Operador Condicional de comparación.',
@@ -72,6 +85,7 @@ class LexemeDesc:
         else:
             return [False]
     
+    #Obtiene la descripción de los símbolos para funciones y clases
     def classToken(self, classToken):
         classTokenDesc = {
             '::':"Símbolo de identificador de función.",
@@ -84,6 +98,7 @@ class LexemeDesc:
         else:
             return [False]
 
+    #Obtiene la descripción de distintos Símbolos
     def lookup(self, lookup):
         lookupDesc = {
             ';':"Símbolo Fin de instrucción.",
@@ -102,14 +117,17 @@ class LexemeDesc:
         else:
             return [False]
 
+    #Obtiene la descripción de las cadenas
     def stringDesc(self, stringLex):
         self.countlexem += 1 
         return [self.countlexem, 'STRING' , "Token Cadena de caracteres", stringLex]  
     
+    #Obtiene la descripción de los números flotantes
     def floatDesc(self, floatLex):    
         self.countlexem += 1 
         return [self.countlexem, 'LIT_FLOAT' , "Token para numeros flotantes Literales", floatLex]  
     
+    #Obtiene la descripción de los números enteros
     def intDesc(self, intLex):
         self.countlexem += 1 
         return [self.countlexem, 'LIT_INT' , "Token para numeros enteros Literales", intLex]  
