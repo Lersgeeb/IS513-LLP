@@ -1,4 +1,4 @@
-WelcomeText = "Bienvenidos";
+WelcomeText = "Bienvenidos!";
 resultText = "El resultado de la suma es: ";
 
 a = 1.1;
@@ -10,10 +10,14 @@ print(b);
 suma = a + a + 2;
 resta = 2 - a;
 
-print WelcomeText;
+print WelcomeText ;
 print("  ");
-print (resultText);
+print (resultText + "sas");
 print (suma);
 print("  ");
 print ("El resultado de la resta");
 print (resta);
+
+
+print( "Prueba" + " Concatenado" + " Mas concatenado" );
+

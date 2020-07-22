@@ -7,17 +7,19 @@ grammar = """
     // Definición de una expresión
     ?exp: var "=" string ";" -> assignvar
         | var "=" arithmeticoperation ";" -> assignvar
-        | "print" "("? strcat ")"? ";" -> print
-        | "print" "("? var ")"? ";" -> printvar
+        | "print" "(" stringoperation ")" ";" -> print
+        | "print" stringoperation ";" -> print
 
     // Definición de operación de concatenado
-    ?strcat: string
-        | string "+" strcat 
+    ?stringoperation: string
+        | var -> getvar
+        | var "+" stringoperation -> catstringvar
+        | string "+" stringoperation -> catstrings
 
     // Definición de operación aritmética
     ?arithmeticoperation: arithmeticoperationatom
-        | arithmeticoperationatom "+" arithmeticoperationatom -> sum
-        | arithmeticoperationatom "-" arithmeticoperationatom -> sub
+        | arithmeticoperation "+" arithmeticoperationatom -> sum
+        | arithmeticoperation "-" arithmeticoperationatom -> sub
 
     // Definición de un átomo de operación aritmética
     ?arithmeticoperationatom: var -> getvar

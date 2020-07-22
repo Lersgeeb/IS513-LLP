@@ -13,20 +13,29 @@ class Semantic(Transformer):
 
     def sub(self, A, B):
         return float(A) - float(B)
+    
+    def mul(self, A, B):
+        return float(A) * float(B)
+    
+    def div(self, A, B):
+        return float(A) / float(B)
 
     def assignvar(self,name,value):
         self.variable[name] = value
 
     def getvar(self, name):
-        return self.variable[name]
+        return str(self.variable[name])
 
     def print(self, param):
         print("%s" % self.cleanParam(param))
-
-    def printvar(self, name):
-        print("%s" % self.getvar(name))
 
     def cleanParam(self, param):
         if re.match(r"^((\"[^\"]*\")|('[^']*'))$", param):
             return param[1:-1]
         return param
+
+    def catstrings(self, str1, str2):
+        return "%s%s" % (self.cleanParam(str1), self.cleanParam(str2) )
+
+    def catstringvar(self, name, str1):
+        return "%s%s" % ( self.cleanParam( str(self.getvar(name)) ), self.cleanParam(str1))

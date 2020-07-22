@@ -1,0 +1,15 @@
+WelcomeText = "Bienvenidos!";
+resultText =  "El resultado de la suma es: ";
+otra = "otra prueba";
+
+
+print WelcomeText ;
+print resultText;
+print("esta es otra prueba" + " de concatenado");
+print( otra + " de concatenado" );
+
+print( "operacion multiple:" );
+
+multiOp = 3 + 3 + 2;
+
+print multiOp ;
