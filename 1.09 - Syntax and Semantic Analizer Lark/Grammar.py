@@ -8,7 +8,7 @@ grammar = """
     ?exp: var "=" string ";" -> assignvar
         | var "=" arithmeticoperation ";" -> assignvar
         | "print" "("? string ")"? ";" -> print
-        | "print" "("? var ")"? ";" -> printVar
+        | "print" "("? var ")"? ";" -> printvar
 
     // Definición de operación aritmética
     ?arithmeticoperation: arithmeticoperationatom
@@ -32,7 +32,7 @@ grammar = """
     ?number: /\d+(\.\d+)?/
 
     //Ignorar espacios, saltos de línea y tabulados
-    %ignore /\s*/
+    %ignore /\s+/
 
 
 """

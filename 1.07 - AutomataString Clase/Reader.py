@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Reader: 
 
     def __init__(self): pass
@@ -23,13 +24,3 @@ class Reader:
             print("The Letter '%s' at position '%d'" % (text[i], i))
 
         return self
-
-
-
-
-'''
-r = ( Reader() ).read()
-print("hola")
-print(r.text)
-print("adios")
-'''

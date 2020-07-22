@@ -24,12 +24,3 @@ class Reader:
 
         return self
 
-
-
-
-'''
-r = ( Reader() ).read()
-print("hola")
-print(r.text)
-print("adios")
-'''

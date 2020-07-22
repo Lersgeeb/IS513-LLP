@@ -2,10 +2,18 @@ WelcomeText = "Bienvenidos";
 resultText = "El resultado de la suma es: ";
 
 a = 1.1;
+b = -5;
+
+print("Valor de B");
+print(b);
+
 suma = a + a + 2;
 resta = 2 - a;
 
 print WelcomeText;
+print("  ");
 print (resultText);
 print (suma);
-
+print("  ");
+print ("El resultado de la resta");
+print (resta);

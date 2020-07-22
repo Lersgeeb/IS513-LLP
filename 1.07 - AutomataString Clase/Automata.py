@@ -13,11 +13,11 @@ class Automata:
         i = 0
         token = None
         while(i < len(text)):
-            #aqui si entra ya mañana averiguo
-            i, token = self.tokenCreator(text, i, token)
 
-        if token.formed:
-            tokens += [token] 
+            i, token = self.tokenCreator(text, i, token)
+    
+            if token.formed:
+                tokens += [token] 
 
         self.tokens = tokens
         return self

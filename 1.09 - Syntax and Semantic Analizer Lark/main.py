@@ -7,9 +7,9 @@ from lark import Lark, Transformer
 from Grammar import *
 
 reader = (Reader()).read()
+
 parser = Lark(grammar, parser="lalr", transformer = Semantic()) 
 language = parser.parse
-
 sample = reader.text
 
 try:

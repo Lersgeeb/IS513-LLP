@@ -11,5 +11,4 @@ for token in automata.tokens:
 
     value, valueType = token.info()
     print ("\t%s - %s" % (value, valueType))
-    print("fin")
-    print(automata.reader.text)
+   
