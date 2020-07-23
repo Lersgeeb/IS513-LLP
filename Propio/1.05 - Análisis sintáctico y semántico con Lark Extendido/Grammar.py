@@ -6,7 +6,7 @@ grammar = """
     
     // Definición de una expresión
     ?exp: var "=" string ";" -> assignvar
-        | var "=" arithmeticoperation ";" -> assignvar
+        | var "=" expr ";" -> assignvar
         | "print" "(" stringoperation ")" ";" -> print
         | "print" stringoperation ";" -> print
 
@@ -17,16 +17,17 @@ grammar = """
         | string "+" stringoperation -> catstrings
 
     // Definición de operación aritmética
-    ?arithmeticoperation: arithmeticoperationatom
-        | arithmeticoperation "+" arithmeticoperationatom -> sum
-        | arithmeticoperation "-" arithmeticoperationatom -> sub
+    ?expr: term "+" expr -> sum
+        | expr "-" term -> sub
+        | term
 
-    // Definición de un átomo de operación aritmética
-    ?arithmeticoperationatom: var -> getvar
+    ?term: term "*" factor -> mul
+        | factor "/" expr -> div
+        | factor
+
+    ?factor: "(" expr ")"
         | number
-        | "-" arithmeticoperationatom
-        | "+" arithmeticoperationatom
-        | "(" arithmeticoperation ")"
+        | var -> getvar
 
     // Definición de una cadena
     ?string: /"[^"]*"/

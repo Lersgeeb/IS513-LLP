@@ -31,6 +31,12 @@ class Semantic(Transformer):
 
     def cleanParam(self, param):
         if re.match(r"^((\"[^\"]*\")|('[^']*'))$", param):
+            
+            #reconocer caracteres especiales dentro de una cadena
+            param = re.sub(r"\\n","\n" , param)
+            param = re.sub(r"\\t","\t" , param)
+
+            #print(param)
             return param[1:-1]
         return param
 

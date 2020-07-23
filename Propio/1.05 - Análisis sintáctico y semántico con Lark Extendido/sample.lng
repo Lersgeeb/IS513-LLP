@@ -1,23 +1,31 @@
 WelcomeText = "Bienvenidos!";
-resultText = "El resultado de la suma es: ";
+resultText = "El resultado de la suma a + a + 2 es: ";
 
 a = 1.1;
-b = -5;
-
-print("Valor de B");
-print(b);
+b = 5;
 
 suma = a + a + 2;
 resta = 2 - a;
 
-print WelcomeText ;
-print("  ");
-print (resultText + "sas");
-print (suma);
-print("  ");
-print ("El resultado de la resta");
-print (resta);
+print "\n" + WelcomeText + "\n-------------";
+print( "Lenguaje que permite operaciones aritmeticas, concatenacion y asignacion de variables\n" );
 
+print "Probando Asignacion:";
+print "\n\tValor de b: " + b ;
+print "\tValor de a: " + a + "\n";
 
-print( "Prueba" + " Concatenado" + " Mas concatenado" );
+print "Probando operacion aritmetica de Asignacion:";
+print ("\n\t" + resultText + suma + "\n");
+
+print "Probando operacion aritmetica de substracion:";
+print ("\n\tEl resultado de la resta 2 - a: " + resta + "\n");
+
+print( "Prueba de concatenado:\n" );
+print "\tCada" + " palabra" + " esta" + " unido" + " por" + " concatenacion\n" ;
+
+print( "Resolver multiplicacion con precedencia:" );
+mulOp = 3 + 3 * 4 ;
+
+print( "\n\tEl resultado de la multiplicacion es: " + mulOp);
+
 
