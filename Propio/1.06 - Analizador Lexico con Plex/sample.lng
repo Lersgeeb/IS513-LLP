@@ -1,0 +1,17 @@
+welcome = "Bienvenidos";
+
+print("Operaciones");
+
+a = 2;
+b = 5;
+c = 8;
+
+operacion = a + b * c / a;
+
+#Un comentario
+print(operacion);
+
+if( operacion % 2 == 0 ){
+    print("es par")
+}
+
