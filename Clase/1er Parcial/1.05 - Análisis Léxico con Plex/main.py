@@ -33,31 +33,31 @@ class LexicalAnalysis:
             ]
         )
 
-        def parse(self):
-            lexicon = self.lexicon
-            lexicalTable = []
+    def parse(self):
+        lexicon = self.lexicon
+        lexicalTable = []
 
-            filename = sys.argv[1:][0]  #[1]
-            f = open(filename, "r")
-            scanner = Scanner(lexicon, f, filename)
+        filename = sys.argv[1:][0]  #[1]
+        f = open(filename, "r")
+        scanner = Scanner(lexicon, f, filename)
 
-            while True:
-                try:
-                    token = scanner.read()
+        while True:
+            try:
+                token = scanner.read()
 
-                    if not token[0]: break
-                    
-                    desc, val = token
-                    lexicalTable += [[val, desc]]
+                if not token[0]: break
+                
+                desc, val = token
+                lexicalTable += [[val, desc]]
 
-                except Exception as e:
-                    print("Lexical Error: %s" % (e) )
-                    f.close()
-                    return False
+            except Exception as e:
+                print("Lexical Error: %s" % (e) )
+                f.close()
+                return False
 
-            f.close()
-            self.lexicalTable = lexicalTable
-            return self
+        f.close()
+        self.lexicalTable = lexicalTable
+        return self
 
 
 parser = (LexicalAnalysis())
