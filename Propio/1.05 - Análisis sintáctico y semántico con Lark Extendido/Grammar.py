@@ -6,9 +6,13 @@ grammar = """
     
     // Definición de una expresión
     ?exp: var "=" string ";" -> assignvar
+        | var "=" concatvar ";" -> assignvar
         | var "=" expr ";" -> assignvar
         | "print" "(" stringoperation ")" ";" -> print
         | "print" stringoperation ";" -> print
+
+    ?concatvar:  var "+" var -> catvarvar
+        | var "+" concatvar -> catstringvar
 
     // Definición de operación de concatenado
     ?stringoperation: string

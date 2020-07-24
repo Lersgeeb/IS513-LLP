@@ -13,3 +13,8 @@ print( "operacion multiple:" );
 multiOp = 3 + 3 + 2;
 
 print multiOp ;
+
+anotherWelcome = "Hola que tal ";
+
+doubleWelcome = anotherWelcome + WelcomeText + WelcomeText + anotherWelcome;
+print(doubleWelcome);

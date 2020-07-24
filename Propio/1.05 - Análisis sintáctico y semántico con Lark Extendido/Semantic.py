@@ -45,3 +45,6 @@ class Semantic(Transformer):
 
     def catstringvar(self, name, str1):
         return "%s%s" % ( self.cleanParam( str(self.getvar(name)) ), self.cleanParam(str1))
+
+    def catvarvar(self, name1, name2):
+        return "%s%s" % ( self.cleanParam( str(self.getvar(name1)) ), self.cleanParam( str(self.getvar(name2)) ) )
