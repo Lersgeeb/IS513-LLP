@@ -26,6 +26,18 @@ print "\tCada" + " palabra" + " esta" + " unido" + " por" + " concatenacion\n" ;
 print( "Resolver multiplicacion con precedencia:" );
 mulOp = 3 + 3 * 4 ;
 
-print( "\n\tEl resultado de la multiplicacion es: " + mulOp);
+print( "\n\tEl resultado de la multiplicacion 3 + 3 * 4 es: " + mulOp);
 
 
+num = "sas ";
+var = "sasasasas";
+
+print("\nUltimas pruebas");
+extendedStr = num + var ;
+
+print(extendedStr);
+
+uno = "1";
+tres = "3";
+
+print("%s %s %s" % (uno, "2", tres));

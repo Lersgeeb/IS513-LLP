@@ -3,6 +3,10 @@ resultText =  "El resultado de la suma es: ";
 otra = "otra prueba";
 
 
+a = 1.1;
+b = 5;
+
+
 print WelcomeText ;
 print resultText;
 print("esta es otra prueba" + " de concatenado");
@@ -10,11 +14,12 @@ print( otra + " de concatenado" );
 
 print( "operacion multiple:" );
 
-multiOp = 3 + 3 + 2;
+multiOp = a + b + 4 ;
 
 print multiOp ;
 
 anotherWelcome = "Hola que tal ";
 
-doubleWelcome = anotherWelcome + WelcomeText + WelcomeText + anotherWelcome;
+doubleWelcome = "inicio " + anotherWelcome + WelcomeText + "sas " + WelcomeText + anotherWelcome;
 print(doubleWelcome);
+

@@ -6,45 +6,43 @@ grammar = """
     
     // Definición de una expresión
     ?exp: var "=" string ";" -> assignvar
-        | var "=" concatvar ";" -> assignvar
         | var "=" expr ";" -> assignvar
         | "print" "(" stringoperation ")" ";" -> print
         | "print" stringoperation ";" -> print
-
-    ?concatvar:  var "+" var -> catvarvar
-        | var "+" concatvar -> catstringvar
-
+        | "print" "(" string "%" "(" parameters ")" ")" ";" -> printf
+        | "print" string "%" "(" parameters ")" ";" -> printf
     // Definición de operación de concatenado
     ?stringoperation: string
         | var -> getvar
         | var "+" stringoperation -> catstringvar
         | string "+" stringoperation -> catstrings
-
     // Definición de operación aritmética
-    ?expr: term "+" expr -> sum
+    ?expr: term "+" expr -> plusop
         | expr "-" term -> sub
         | term
-
     ?term: term "*" factor -> mul
         | factor "/" expr -> div
         | factor
-
     ?factor: "(" expr ")"
         | number
         | var -> getvar
 
+    //Parameters
+    ?parameters: 
+        | var "," parameters -> arguments
+        | string "," parameters -> arguments
+        | number "," parameters -> arguments
+        | var 
+        | string 
+        | number 
+    
     // Definición de una cadena
     ?string: /"[^"]*"/
         | /'[^']*'/
-
     // Definición de una variable
     ?var: /[a-zA-Z]\w*/
-
     // Definición de un nómero
     ?number: /\d+(\.\d+)?/
-
     //Ignorar espacios, saltos de línea y tabulados
     %ignore /\s+/
-
-
 """

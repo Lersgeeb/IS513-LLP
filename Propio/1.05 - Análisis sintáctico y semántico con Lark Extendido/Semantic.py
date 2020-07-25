@@ -42,9 +42,54 @@ class Semantic(Transformer):
 
     def catstrings(self, str1, str2):
         return "%s%s" % (self.cleanParam(str1), self.cleanParam(str2) )
-
+    
     def catstringvar(self, name, str1):
         return "%s%s" % ( self.cleanParam( str(self.getvar(name)) ), self.cleanParam(str1))
 
-    def catvarvar(self, name1, name2):
-        return "%s%s" % ( self.cleanParam( str(self.getvar(name1)) ), self.cleanParam( str(self.getvar(name2)) ) )
+    def plusop(self, term1, term2):
+
+        if(
+            re.match(r"^(\"[^\"]*\")|('[^']*')*$", term1) and
+            re.match(r"^(\"[^\"]*\")|('[^']*')*$", term2) 
+        ):
+            return self.catstrings(term1, term2)
+
+        else: 
+            return self.sum(term1,term2)    
+
+    def arguments(self, val1, val2):
+        if(type(val2) == list ):
+            parameters = val2[:]
+            if(val1 in self.variable.keys()):
+                val1 = self.getvar(val1)
+            parameters += [val1]
+        
+        else:
+            
+            if(val1 in self.variable.keys()):
+                val1 = self.getvar(val1)
+
+            if(val2 in self.variable.keys()):
+                val2 = self.getvar(val2)
+            
+            parameters = [val2, val1 ]
+        
+        return parameters
+
+    def printf(self, strvalue, parameters):
+        strList = strvalue.split("%s")
+        newStr = []
+
+        for s in strList:
+            if(len(parameters) == 0):
+                newStr += [s]
+                break
+            newStr += [s, self.cleanParam(parameters.pop())]
+
+        print(self.cleanParam("".join(newStr)))
+        
+
+
+
+     
+            
