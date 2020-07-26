@@ -24,7 +24,9 @@ class Semantic(Transformer):
         self.variable[name] = value
 
     def getvar(self, name):
-        return str(self.variable[name])
+        if name in self.variable.keys():
+            return str(self.variable[name]) 
+        return False
 
     def print(self, param):
         print("%s" % self.cleanParam(param))
@@ -42,20 +44,35 @@ class Semantic(Transformer):
 
     def catstrings(self, str1, str2):
         return "%s%s" % (self.cleanParam(str1), self.cleanParam(str2) )
-    
-    def catstringvar(self, name, str1):
-        return "%s%s" % ( self.cleanParam( str(self.getvar(name)) ), self.cleanParam(str1))
 
     def plusop(self, term1, term2):
+        
+        if type(term1) == float:
+            term1 = "%s" % term1
+        
+        if type(term2) == float:
+            term2 = "%s" % term2
 
-        if(
-            re.match(r"^(\"[^\"]*\")|('[^']*')*$", term1) and
-            re.match(r"^(\"[^\"]*\")|('[^']*')*$", term2) 
+        #convert  nameOfVariable to value
+        if(re.match(r"^[a-zA-Z]\w*$", term1 )):
+            print("dentro de termino1")
+            if(self.getvar(term1)):
+                term1 = self.getvar(term1)
+        if(re.match(r"^[a-zA-Z]\w*$", term2 )):
+            print("dentro de termino2")
+            if(self.getvar(term2)):
+                term2 = self.getvar(term2)
+
+
+        #Si ambos son numeros ejecuta una suma aritmetica
+        if( 
+            re.match(r"^\d+(\.\d+)?$", term1) and
+            re.match(r"^\d+(\.\d+)?$", term2)
         ):
+            return self.sum(term1,term2)  
+        
+        else:
             return self.catstrings(term1, term2)
-
-        else: 
-            return self.sum(term1,term2)    
 
     def arguments(self, val1, val2):
         if(type(val2) == list ):

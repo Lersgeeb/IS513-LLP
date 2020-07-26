@@ -4,28 +4,30 @@ grammar = """
     //El axioma inicial
     ?start: exp+
     
-    // Definición de una expresión
-    ?exp: var "=" string ";" -> assignvar
-        | var "=" expr ";" -> assignvar
-        | "print" "(" stringoperation ")" ";" -> print
-        | "print" stringoperation ";" -> print
-        | "print" "(" string "%" "(" parameters ")" ")" ";" -> printf
-        | "print" string "%" "(" parameters ")" ";" -> printf
-    // Definición de operación de concatenado
-    ?stringoperation: string
-        | var -> getvar
-        | var "+" stringoperation -> catstringvar
-        | string "+" stringoperation -> catstrings
+    // Definición de una arithmeticxpr
+    ?exp: var "=" arithmeticexpr ";" -> assignvar  
+        | printfun ";" 
+
+    ?printfun: "print" arithmeticexpr -> print
+        | "print" "(" string "%" "(" parameters ")" ")" -> printf
+        | "print" string "%" "(" parameters ")" -> printf
+    
     // Definición de operación aritmética
-    ?expr: term "+" expr -> plusop
-        | expr "-" term -> sub
-        | term
-    ?term: term "*" factor -> mul
-        | factor "/" expr -> div
-        | factor
-    ?factor: "(" expr ")"
-        | number
+    ?arithmeticexpr: term
+        | term "+" arithmeticexpr -> plusop
+        | arithmeticexpr "-" term -> sub
+        
+    ?term: factor
+        | term "*" factor -> mul
+        | term "/" factor -> div
+        
+    
+    ?factor: atom
+        | "(" arithmeticexpr ")"
+
+    ?atom:number
         | var -> getvar
+        | string  
 
     //Parameters
     ?parameters: 
@@ -39,10 +41,13 @@ grammar = """
     // Definición de una cadena
     ?string: /"[^"]*"/
         | /'[^']*'/
+
     // Definición de una variable
     ?var: /[a-zA-Z]\w*/
+
     // Definición de un nómero
     ?number: /\d+(\.\d+)?/
+
     //Ignorar espacios, saltos de línea y tabulados
     %ignore /\s+/
 """

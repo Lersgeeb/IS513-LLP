@@ -10,9 +10,12 @@ resta = 2 - a;
 print "\n" + WelcomeText + "\n-------------";
 print( "Lenguaje que permite operaciones aritmeticas, concatenacion y asignacion de variables\n" );
 
+
+
 print "Probando Asignacion:";
 print "\n\tValor de b: " + b ;
 print "\tValor de a: " + a + "\n";
+
 
 print "Probando operacion aritmetica de Asignacion:";
 print ("\n\t" + resultText + suma + "\n");
@@ -25,6 +28,7 @@ print "\tCada" + " palabra" + " esta" + " unido" + " por" + " concatenacion\n" ;
 
 print( "Resolver multiplicacion con precedencia:" );
 mulOp = 3 + 3 * 4 ;
+
 
 print( "\n\tEl resultado de la multiplicacion 3 + 3 * 4 es: " + mulOp);
 
@@ -41,3 +45,9 @@ uno = "1";
 tres = "3";
 
 print("%s %s %s" % (uno, "2", tres));
+
+pruebastring = "Ultimate";
+
+pruebafinal = "inicio " + pruebastring + pruebastring + "sas " + pruebastring + 2;
+
+print(pruebafinal);

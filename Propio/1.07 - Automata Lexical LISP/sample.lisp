@@ -13,11 +13,11 @@
 (write-line "")
 
 ; Definir una variable y se solicita el dato al usuario
-(defvar *unaVariableCualquiera*)
-(setf *unaVariableCualquiera* (read))
+(defvar unaVariableCualquiera)
+(setf unaVariableCualquiera (read))
 (write-line "")
 
 ;Se imprimen los resultados de una operación cualquiera
 (write-line "El resultado de su número * por 5 es: ")
-(write (* 5 *unaVariableCualquiera*))
+(write (* 5 unaVariableCualquiera))
 (write-line "")

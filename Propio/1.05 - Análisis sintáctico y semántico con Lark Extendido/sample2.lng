@@ -21,5 +21,6 @@ print multiOp ;
 anotherWelcome = "Hola que tal ";
 
 doubleWelcome = "inicio " + anotherWelcome + WelcomeText + "sas " + WelcomeText + anotherWelcome;
+doubleWelcome = anotherWelcome + WelcomeText + "sas " + WelcomeText + anotherWelcome;
 print(doubleWelcome);
 
