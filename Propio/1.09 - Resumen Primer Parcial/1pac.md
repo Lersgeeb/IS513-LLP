@@ -77,3 +77,21 @@ Un lenguaje declarativo (nonprocedural - no procedural) se enfoca en qué hacer 
 #### Scripting Language 
 A veces son llamados lenguajes pequeños debido a que fueron construidos con el propósito de elaborar programas que resuelvan pequeños problemas de no tan alta complejidad. 
 
+### Criterios de Evaluación de un lenguaje
+
+#### Legibilidad
+Unos de los aspectos más importantes al momento de analizar un programa es la facilidad con la que puede ser leído y comprendido. A medida los programas se volvían más complejos había que mantenerlos durante largo periodos de tiempo por lo que la legibilidad gano relevancia sobre la eficiencia que otorgaban lenguajes como el ensamblador. Este criterio destacaba sobre todo en programas desarrollados por grandes grupos de desarrolladores. 
+
+Dentro de un lenguaje de programación encontramos estas características que ayudan a la legibilidad de un programa:
+
+**Simplicidad general:** Los lenguajes de programación con varios constructores de lenguajes (*Los constructores de lenguaje son las palabras fundamentales que configuran un lenguaje de programación*) suelen hacerla más difícil de aprender. Además es frecuente que los desarrolladores que terminen empleándola solo aprovechen un sub conjunto de los constructores del que el lenguaje brinda en total. 
+
+**Ortogonalidad:** La palabra ortogonal proviene del concepto matemático de vectores ortogonales, que son independientes de cada uno entre sí. La Ortogonalidad en un lenguaje que se deriva de estas relaciones independiente entre los estructura de datos primitivos.
+
+**Tipo de datos:** Se deberá agregar los tipos de datos necesarios para apoyar la legibilidad del programa. 
+
+**Diseño de sintaxis:**  Tener en cuenta el significado de las palabras especiales que contiene un lenguaje de programación y  tener cuidado con agregar varios significados a una operación/función en diferentes contextos. ambos enfoques contribuyen en gran medida a la legibilidad.
+
+#### Escritura
+Cuando nos referimos a la posibilidad de escritura se quiere decir la facilidad con la que se pueden escribir Programas con un lenguaje. También cabe destacar que la escritura y la legibilidad están fuertemente relacionados. Mientras escribimos un programa se suele reusar otras partes de código, así que la facilidad con la que se lee un lenguaje contribuye de gran manera la posibilidad de escritura.
+
