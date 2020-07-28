@@ -3,7 +3,7 @@
 ## Conceptos Fundamentales
 Los **lenguajes de Programación** son una manera de expresar un conjunto de instrucciones que la computadora pueda entender. La forma de cada instrucción deberá seguir estrictamente las normas **sintácticas** y **semánticas** compuestas por el lenguaje empleado.
 
-La razón principal por la que fueron elaborados los lenguajes de programación fue por intentar descubrir una manera de crear soluciones a problemas que en un principio son difíciles de resolver por los humanos. Por ejemplo, procedimientos o cálculos específicos que se tienen que ejecutar en grandes cantidades de veces. Debido a esto fue necesario la creación de una herramienta que brindara la capacidad de comunicación entre humano-maquina. Ya que las maquinas podían ejecutar un sin número de veces alguna tarea sin mostrar cansancio o errores como las personas. Es así como nación el primer lenguaje de programación, el lenguaje máquina.
+La razón principal por la que fueron elaborados los lenguajes de programación fue por intentar descubrir una manera de crear soluciones a problemas que en un principio son **difíciles de resolver por los humanos**. Por ejemplo, procedimientos o cálculos específicos que se tienen que ejecutar en grandes cantidades de veces. Debido a esto fue necesario la creación de una herramienta que brindara la capacidad de **comunicación** entre **humano-maquina**. Ya que las maquinas podían ejecutar un sin número de veces alguna tarea sin mostrar cansancio o errores como las personas. Es así como nació el primer lenguaje de programación, el **lenguaje máquina**.
 
 
 Antes de hablar de lenguaje maquina primero se necesita mencionar que entre los lenguajes de programación conocidos se puede destacar dos clasificaciones específicas, Estas son:
@@ -12,16 +12,18 @@ Antes de hablar de lenguaje maquina primero se necesita mencionar que entre los 
 - Lenguaje de programación de bajo nivel
 
 ### Lenguaje de bajo nivel
+Los primeros lenguajes creados fueron los de bajo nivel. Las funciones que otorgaban dependían muchas veces de la maquina imposibilitando la capacidad de código compartido y uso del programa en diferentes dispositivos. Sin embargo brindaban grandes funcionalidades para manejo memoria y control sobre el flujo de datos.
 
 #### Lenguaje maquina
-El lenguaje maquina está conformado por bits, es decir de 0s y 1s. Las instrucciones que interactúan con el procesador directamente están conformado por secuencias de ambos elementos. El problema principal que presenta el lenguaje maquina es la poca legibilidad y posibilidad de escritura de su sintaxis. Provocando que los programas elaborados sean pobremente escalables. 
+El primero en aparecer fue el lenguaje maquina el cual está conformado por **bits**, es decir de **0s** y **1s**. Las instrucciones interactúan con el procesador directamente y están conformado por secuencias de ambos elementos. El problema principal que presenta el lenguaje maquina es la **poca legibilidad** y **posibilidad de escritura** de su sintaxis. Provocando que los programas elaborados sean pobremente escalables. 
 
 #### Lenguaje de ensamblador
-Mientras el lenguaje maquina presenta un alto nivel de dificultad para cualquier persona dedicada al ámbito de la computación, el lenguaje ensamblador presenta una sintaxis más carismática para el programador, agregando términos Mnemotécnicos para la eficiencia de escritura. Por ejemplo, El lenguaje ensamblador agrega a su léxico términos como “add” para hacer referencia a una suma entre dos enteros. La tarea principal del lenguaje de ensamblador es brindarle al programador una forma más sencilla de introducir instrucciones hacia el computador que luego sean traducidos a lenguaje maquina sin perder los beneficios de haberlo escrito en lenguaje máquina.
+Mientras el lenguaje maquina presenta un alto nivel de dificultad para cualquier persona dedicada al ámbito de la computación, el lenguaje ensamblador presenta una sintaxis más carismática para el programador, agregando términos **Mnemotécnicos** para la eficiencia de escritura. Por ejemplo, El lenguaje ensamblador agrega a su léxico términos como “add” para hacer referencia a una suma entre dos enteros. La tarea principal del lenguaje de ensamblador es brindarle al programador una forma **más sencilla** de **introducir instrucciones** hacia el computador que luego sean traducidos a lenguaje maquina sin perder los beneficios de haberlo escrito en lenguaje máquina.
 
-En los lenguajes de bajo nivel se encuentran beneficios como manejo del espacio de memoria, el cual queda totalmente a control del programador. Sin embargo se necesita un conocimiento alto del hardware con el que se está trabajando.
 
 ### Lenguaje de alto nivel
+Los lenguajes de alto nivel vinieron a resolver el dilema planteado por los lenguajes de bajo nivel. El uso de un programa sin importar las diferencias del hardware.
+
 Dentro de los lenguajes considerados como alto nivel podemos encontrar diferente tipos. Cada tipo depende del motivo principal por la que fueron creados dichos lenguajes, en ellos encontramos:
 
 - Lenguajes Algorítmicos
@@ -33,6 +35,7 @@ Dentro de los lenguajes considerados como alto nivel podemos encontrar diferente
 - Lenguajes de Formato de Documento
 
 #### Lenguajes Algorítmicos
+Los lenguajes algorítmicos fueron los primeros elaborados dentro de los de alto nivel. El objetivo principal de estos era resolver **problemas matemáticos**. Se apoyaban en los beneficios otorgados por las computadoras, es decir de resolver varias tareas repetidas veces de forma rápida y correcta. Algunos de ellos son: 
 
 **Fortran:** Es un lenguaje de programación de alto nivel, su nombre hace referencia a “Formula Translation”. El propósito principal del lenguaje es ser utilizado para el uso de computación científica y manejo de conjuntos de números tanto reales como complejos. Además de ofrecer utilidades para la manipulación de arreglos unidimensionales y multidimensionales.
  
@@ -43,12 +46,15 @@ Dentro de los lenguajes considerados como alto nivel podemos encontrar diferente
 **C:** Ofrece la estructura que brindaba Algol tanto para el control de datos como la composición de programación por bloques. Además ofrece los beneficios de los lenguajes de bajo nivel para la administración de memoria. C es un famoso lenguaje de programación en la actualidad que sigue siendo utilizado y cuenta con un famoso descendiente como es C++.
 
 #### Lenguajes Orientado a Empresas
+Durante años las empresas han ido utilizando los beneficios que otorgan las computadoras. Estas pueden almacenar grandes cantidades de datos en una zona relativamente pequeña. Sin embargo también surge el inconveniente de acceso a los **datos almacenados**. Pero Gracias a los lenguajes de programación se puede crear un sistema donde todos los datos están recopilados en **base de datos** esperando para ser **consultados** o **manipulados** en cualquier momento. Algunos de ellos son: 
 
 **COBOL:*** (Common Business Oriented Language) fue frecuentemente utilizado por las empresas debido a los beneficios que brindaba de compatibilidad con diversos sistemas. Además de herramientas para la manipulación de grandes cantidades de datos no numéricos. Introdujo la forma de estructura de datos tal y como la conocemos ahora.
 
 **SQL:** Conocido como “Structured Query Language”. Es un lenguaje específico para la manipulación de base de datos. Dentro del cual destacaba la base de datos relacionales. Ofrecía una forma de consulta hacia los datos con los que disponían las empresas.
 
 #### Lenguajes Orientados a la Educación 
+Para introducir a nuevos estudiantes entusiastas sobre la  ciencia de la computación fue necesario crear una rama para poder **enseñar** los fundamentos de la programación. Estos lenguajes destacan por tener una sintaxis más **amigable** sin embargo sacrificando rendimiento y poder. Algunos de ellos son: 
+
 
 **BASIC:** Como su nombre lo indica (beginner’s all-purpose symbolic instruction code), es un lenguaje enfocado para la enseñanza hacia estudiantes que no cuenten con conocimientos profundo acerca de la Ciencia de la Computación. Cuenta con una sintaxis sencilla para novatos que facilita el aprendizaje. Basic es un lenguaje de programación Interpretado y podía ser usado en computadoras personales.
 
@@ -60,7 +66,7 @@ Dentro de los lenguajes considerados como alto nivel podemos encontrar diferente
 **Hypertalk:** Hacía uso de un léxico y sintaxis muy similar al idioma inglés para codificar las instrucciones para la máquina. Su lema era “programación para el resto de nosotros”. También ofrecía la generación de interfaces gráficas y contaba con características propias de programación orientado a objetos.
 
 #### Lenguajes Orientados a Objetos
-El objetivo principal de los lenguajes orientados a objetos es ayudar al programador durante la elaboración de programas extensos y de gran complejidad. Al usar este enfoque cada objeto actúa de manera independiente al resto del código. Los objetos se constituyen de datos y operaciones, Mientras los datos permanecen oculto al resto del programa, las operaciones (métodos), serán públicas y servirán para manipular los datos de los objetos creados. A medida vayamos creando objetos encontraremos en ellas grandes similitudes, gracias a la herencia nos podemos facilitar la elaboraciones de cada objeto. Esto se logra encontrando los objetos más generales los cuales formaran objetos de más alto nivel y especializados para resolver un problema específico.
+El objetivo principal de los lenguajes orientados a objetos es ayudar al programador durante la elaboración de programas extensos y de gran complejidad. Al usar este enfoque cada **objeto** actúa de manera **independiente** al resto del código. Los objetos se constituyen de datos y operaciones, Mientras los datos permanecen oculto al resto del programa, las operaciones (métodos), serán públicas y servirán para manipular los datos de los objetos creados. A medida vayamos creando objetos encontraremos en ellas grandes similitudes, gracias a la herencia nos podemos facilitar la elaboraciones de cada objeto. Esto se logra encontrando los objetos más generales los cuales formaran objetos de más alto nivel y especializados para resolver un problema específico. Algunos de ellos son: 
 
 **C++:** Se extiende de un lenguaje ya existente conocido como C. Añade características propias de lenguajes orientado a objetos y preserva los beneficios de eficiencia que brindaba C.
 
@@ -71,14 +77,14 @@ El objetivo principal de los lenguajes orientados a objetos es ayudar al program
 **Visual Basic:** Extendía las capacidades del lenguaje Basic al integrar Objetos y manejo de Eventos, para el uso de interfaces gráficas.
 
 #### Lenguajes Declarativos
-Un lenguaje declarativo (nonprocedural - no procedural) se enfoca en qué hacer para resolver un problema a cambio de cómo hacerlo en el caso de los lenguajes imperativos. Existen dos tipos de lenguajes declarativos, los lógicos y los funcionales.
+Un lenguaje declarativo (nonprocedural - no procedural) se enfoca en **qué hacer** para resolver un problema a cambio de cómo hacerlo en el caso de los lenguajes imperativos. Existen dos tipos de lenguajes declarativos, los **lógicos** y los **funcionales**.
 
-- Los lenguajes lógicos se encargan de cumplir una tarea específica basada en una condición lógica. Un ejemplo es SQL que permite hacer consultad de una determinada información.
+- Los **lenguajes lógicos** se encargan de cumplir una tarea específica basada en una condición lógica. Un ejemplo es SQL que permite hacer consultad de una determinada información.
 
-- Los lenguajes funcionales trabajan en elaboraciones de funciones que cumplirán con una tarea que no necesita ser especificada como hacerla.
+- Los **lenguajes funcionales** trabajan en elaboraciones de funciones que cumplirán con una tarea que no necesita ser especificada como hacerla explicitamente.
 
 #### Scripting Language 
-A veces son llamados lenguajes pequeños debido a que fueron construidos con el propósito de elaborar programas que resuelvan pequeños problemas de no tan alta complejidad. 
+A veces son llamados **lenguajes pequeños** debido a que fueron construidos con el propósito de elaborar programas que resuelvan pequeños problemas de no tan alta complejidad. 
 
 ### Criterios de Evaluación de un lenguaje
 
@@ -124,3 +130,29 @@ El coste de un lenguaje consiste en una suma ponderada de todas sus característ
 - Coste de implementacion, eso puede significar que necesita hardware poderoso para su ejecución. 
 - La falta de Fiabilidad. Esto toma mayor relevancia cuando se ocupa implementar un programa en un sistema crítico como una planta nuclear 
 - Coste de mantenimiento del programa. Que se deriva en correcciones de errores y facilidad de implementar nuevas funciones al programa.
+
+## Léxico, sintaxis y semántica de los lenguajes de Programación
+
+### Partes de un Lenguaje de programacion
+Un lenguaje de programación puede ser descrito de la misma manera que cualquier lenguaje natural. Los lenguajes naturales tienen tres piezas fundamentales que la conforman. Estas son su léxico, sintaxis y semántica.
+
+El **léxico** de un lenguaje natural se refiere al elemento fundamental del idioma, es decir las palabras que estas contienen. En el ámbito de los lenguajes de programación el concepto sería muy similar y las "palabras" que la constituyen serian llamadas **lexemas**. Un lexema es toda aquella unidad que constituye el lenguaje de programación y entre ellas podemos encontrar clasificaciones las cuales son denominadas **tokens** (números literales, operadores, Identificadores, etc…).
+
+La **sintaxis** hace referencia a un conjunto de reglas que definen el orden que deberían llevar los tokens. La sintaxis suele ser definida como un conjunto de alfabeto, reglas y elementos terminales y no terminales. Esta puede ser descritas formalmente de varias maneras, Las más frecuentemente usadas son **CFG** (Context Free Grammar) y **BNF**(Backus-Naur Form). La primera permite describir cualquier lenguaje mientras la segunda está especializada para describir los lenguajes de programación. Más detalles de cada una se encontraran más adelante.
+
+La **semántica** se refiere al significado de un **forma senténcial** (oración). Es la parte encargada de convertir el programa escrito a lenguaje máquina. Sin embargo es necesario que antes el código fuente haya pasado las pruebas léxicas y de sintaxis. 
+
+### La sintaxis de un Lenguaje
+
+Como antes se mencionaba existen dos maneras formales de definir la sintaxis, sin embargo ambas son muy similares por lo que se abarcaran a la misma vez y nos referiremos a ellas como **“gramática”**.
+
+La gramática es un conjunto de reglas. Estas reglas contienen dos elementos fundamentales, los **terminales** y **no terminales**. Los objetos no terminales pueden ser denominados como **abstracciones**. La razón de este nombre se debe a que cada una de ellas puede definir a otra abstracción, objeto terminal o un conjunto de ambas. Los elementos terminales hacen referencia a las unidades básicas que conforman el lenguaje.
+
+Para definir una gramática se necesita definir un **símbolo inicial**, el cual será la raíz de cualquier forma senténcial que se pueda generar con el lenguaje (En el caso de un lenguaje de programación una forma senténcial puede ser la asignación de una variable). A partir del símbolo inicial se podría llegar a cualquier oración permitida por el lenguaje apoyándose de las **derivaciones** que definen las **reglas de la gramática**. Para lograrlo podemos hacer uso de los **árboles de parseo**.
+
+#### Árboles de Parseo
+La estructura de una oración puede ser descrita a partir de un **árbol de parseo**. Elaborar el análisis generaría la estructura hereditaria de la sintaxis. Hablando con los términos anteriores se encontraría el símbolo inicial por encima de todo y a partir de las derivaciones se buscaría llegar a la última forma senténcial.
+
+##### Ambiguiedad
+Toda gramática que permite hacer una misma forma senténcial con dos diferentes arboles de parseo (o más) se dice que es ambigua.  Esta ambigüedad en un lenguaje natural no presentaría mucho conflicto, sin embargo para los lenguajes de programación es un grave problema. Esto es debido a que los compiladores se basan en la estructura sintáctica para elaborar la semántica del lenguaje. En pocas palabras generaría dos árboles con diferente significado semántico para una misma oración.
+
