@@ -1,10 +1,10 @@
-# Lenguajes de programación
+#<span style="color: #4b7bec;">Lenguajes de programación</span> 
 
 ## Conceptos Fundamentales
 
 Los **lenguajes de Programación** son una manera de expresar un conjunto de instrucciones que la computadora pueda entender. La forma de cada instrucción deberá seguir estrictamente las normas **sintácticas** y **semánticas** compuestas por el lenguaje empleado.
 
-Entre los lenguajes de programación conocidos se puede destacar dos clasificaciones especificas. Estas son:
+Entre los lenguajes de programación conocidos se puede destacar dos clasificaciones específicas. Estas son:
 - Lenguaje de programación de alto nivel
 - Lenguaje de programación de bajo nivel
 
@@ -84,14 +84,40 @@ Unos de los aspectos más importantes al momento de analizar un programa es la f
 
 Dentro de un lenguaje de programación encontramos estas características que ayudan a la legibilidad de un programa:
 
-**Simplicidad general:** Los lenguajes de programación con varios constructores de lenguajes (*Los constructores de lenguaje son las palabras fundamentales que configuran un lenguaje de programación*) suelen hacerla más difícil de aprender. Además es frecuente que los desarrolladores que terminen empleándola solo aprovechen un sub conjunto de los constructores del que el lenguaje brinda en total. 
+- **Simplicidad general:** Los lenguajes de programación con varios constructores de lenguajes (*Los constructores de lenguaje son las palabras fundamentales que conforman un lenguaje de programación*) suelen hacerla más difícil de aprender. Además es frecuente que los desarrolladores que terminen empleándola solo aprovechen un sub conjunto de los constructores del que el lenguaje brinda en total. 
 
-**Ortogonalidad:** La palabra ortogonal proviene del concepto matemático de vectores ortogonales, que son independientes de cada uno entre sí. La Ortogonalidad en un lenguaje que se deriva de estas relaciones independiente entre los estructura de datos primitivos.
+- **Ortogonalidad:** La palabra ortogonal proviene del concepto matemático de vectores ortogonales, que son independientes de cada uno entre sí. La Ortogonalidad en un lenguaje se deriva de esta misma relacion independiente que deberia existir entre los datos primitivos del lenguaje.
 
-**Tipo de datos:** Se deberá agregar los tipos de datos necesarios para apoyar la legibilidad del programa. 
+- **Tipo de datos:** Se deberá agregar los tipos de datos necesarios para apoyar la legibilidad del programa. 
 
-**Diseño de sintaxis:**  Tener en cuenta el significado de las palabras especiales que contiene un lenguaje de programación y  tener cuidado con agregar varios significados a una operación/función en diferentes contextos. ambos enfoques contribuyen en gran medida a la legibilidad.
+- **Diseño de sintaxis:**  Tener en cuenta el significado de las palabras especiales que contiene un lenguaje de programación y  tener cuidado con agregar varios significados a una operación/función en diferentes contextos. ambos enfoques contribuyen en gran medida a la legibilidad.
 
 #### Escritura
 Cuando nos referimos a la posibilidad de escritura se quiere decir la facilidad con la que se pueden escribir Programas con un lenguaje. También cabe destacar que la escritura y la legibilidad están fuertemente relacionados. Mientras escribimos un programa se suele reusar otras partes de código, así que la facilidad con la que se lee un lenguaje contribuye de gran manera la posibilidad de escritura.
 
+- **Simplicidad y Ortogonalidad:** Los lenguaje que cuentan con varios constructores pueden permitir situaciones en que los programadores no estén familiarizados con todos ellos, provocando así un mal uso de algunas características y el desuso de otros que al momento de resolver un problema podrían llegar a ser más eficientes. Sin embargo también es importante no mantener un excesivo uso de la Ortogonalidad con los tipos de datos debido a que podría alargar el proceso de la creación de un programa.
+
+- **Soporte para Abstracciones:** Significa que permite definir una estructura básica que podría ser usado por otro programa para resolver soluciones más específicas.
+
+- **Expresividad:** Significa que un idioma tiene formas relativamente convenientes, en lugar de engorrosas para resolver una tarea.
+
+#### Fiabilidad
+Se dice que un programa es confiable si cumple con su específica tarea bajo cualquier condición
+
+- **Verificación de Tipo:** Es Verificar que no existe un error de tipo durante la compilación o ejecución de un programa
+- **Manejo de excepciones:** El lenguaje tiene que tener la capacidad de manejar errores que surjan durante la ejecución de un programa.
+
+- **Aliasing:** Se da cuando se tienen dos o más nombres distintos que pueden ser utilizados para acceder a la misma celda de memoria. Un ejemplo de ello son las tipos de datos pasados por referencia o los apuntadores de C.
+
+- **Legibilidad y Escritura:** Tanto la legibilidad como la capacidad de escritura influyen en la fiabilidad de un lenguaje. Esto quiere decir que un lenguaje debería permitir soluciones fáciles de interpretar para cualquier programador con el conocimiento adecuado.
+
+#### Coste
+El coste de un lenguaje consiste en una suma ponderada de todas sus características
+
+- Cantidad de programadores entrenados para usar el lenguaje, por lo general esta característica depende también simplicidad y Ortogonalidad del lenguaje.
+- Coste de escritura del programa, que depende de la posibilidad de escritura. 
+- Coste de compilación. 
+- Rendimiento y diseño del programa a elaborar. 
+- Coste de implementacion, eso puede significar que necesita hardware poderoso para su ejecución. 
+- La falta de Fiabilidad. Esto toma mayor relevancia cuando se ocupa implementar un programa en un sistema crítico como una planta nuclear 
+- Coste de mantenimiento del programa. Que se deriva en correcciones de errores y facilidad de implementar nuevas funciones al programa.
