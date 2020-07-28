@@ -1,10 +1,13 @@
-#<span style="color: #4b7bec;">Lenguajes de programación</span> 
+# Lenguajes de programación
 
 ## Conceptos Fundamentales
-
 Los **lenguajes de Programación** son una manera de expresar un conjunto de instrucciones que la computadora pueda entender. La forma de cada instrucción deberá seguir estrictamente las normas **sintácticas** y **semánticas** compuestas por el lenguaje empleado.
 
-Entre los lenguajes de programación conocidos se puede destacar dos clasificaciones específicas. Estas son:
+La razón principal por la que fueron elaborados los lenguajes de programación fue por intentar descubrir una manera de crear soluciones a problemas que en un principio son difíciles de resolver por los humanos. Por ejemplo, procedimientos o cálculos específicos que se tienen que ejecutar en grandes cantidades de veces. Debido a esto fue necesario la creación de una herramienta que brindara la capacidad de comunicación entre humano-maquina. Ya que las maquinas podían ejecutar un sin número de veces alguna tarea sin mostrar cansancio o errores como las personas. Es así como nación el primer lenguaje de programación, el lenguaje máquina.
+
+
+Antes de hablar de lenguaje maquina primero se necesita mencionar que entre los lenguajes de programación conocidos se puede destacar dos clasificaciones específicas, Estas son:
+
 - Lenguaje de programación de alto nivel
 - Lenguaje de programación de bajo nivel
 
