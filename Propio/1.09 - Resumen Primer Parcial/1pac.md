@@ -153,6 +153,16 @@ Para definir una gramática se necesita definir un **símbolo inicial**, el cual
 #### Árboles de Parseo
 La estructura de una oración puede ser descrita a partir de un **árbol de parseo**. Elaborar el análisis generaría la estructura hereditaria de la sintaxis. Hablando con los términos anteriores se encontraría el símbolo inicial por encima de todo y a partir de las derivaciones se buscaría llegar a la última forma senténcial.
 
-##### Ambiguiedad
+##### Ambigüedad
 Toda gramática que permite hacer una misma forma senténcial con dos diferentes arboles de parseo (o más) se dice que es ambigua.  Esta ambigüedad en un lenguaje natural no presentaría mucho conflicto, sin embargo para los lenguajes de programación es un grave problema. Esto es debido a que los compiladores se basan en la estructura sintáctica para elaborar la semántica del lenguaje. En pocas palabras generaría dos árboles con diferente significado semántico para una misma oración.
 
+## Proceso analítico de los lenguajes de Programación
+
+### Análisis Léxico
+La principal tarea de un analizador léxico es encontrar todas las palabras que coinciden con los patrones establecidos en el lenguaje. En un lenguaje de programación cada elemento es llamado lexema y la clasificación al que pertenece se denomina Token. Los tokens que se pueden encontrar en un programa abarcan desde números enteros y flotantes hasta identificadores que pueden definir palabras reservadas o nombre de variables. En términos simples un token es todo aquel elemento de un programa que se puede separar entre espacios. Esto debido a que suelen ser interpretados de forma independiente durante la fase de análisis léxico. Para analizar el léxico de un programa se deberán conocer dos diferentes enfoques 
+
+El primer enfoque se basa en hacer uso de expresiones regulares. Con la ayuda de ellos se pueden definir diferentes patrones que contiene el lenguaje a analizar. Luego se deberá implementar un programa que interprete los patrones con una precedencia adecuada(es decir probar con patrones más específicos primeros y los más abstractos al final). Y finalmente almacenar todos los lexemas encontrados con su determinada clasificación, en el caso de encontrar un token inexistente dentro del lenguaje se deberá ubicar el error.
+
+El segundo enfoque es elaborar el diseño de un diagrama de transición que represente cada lexema que puede ser representado en el lenguaje. Un diagrama de estado es un grafo dirigido, donde a partir de la entrada de un carácter el sistema cambiara de un estado a otro.  Los diagramas empleados para el análisis léxico de un lenguaje son denominados comúnmente como Autómatas finitos.
+
+#### Automata Finito
