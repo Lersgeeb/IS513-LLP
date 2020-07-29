@@ -26,7 +26,7 @@ Los lenguajes de alto nivel vinieron a resolver el dilema planteado por los leng
 
 Existen variedades de lenguajes de programación. Cada uno nace para resolver un motivo en específico y a veces existían aquellos los cuales servían para soluciones más generales. La historia de los lenguajes de programación es reciente sin embargo han generado avances que han contribuido significativamente en la sociedad que conocemos hoy en día. 
 
-![Autómata](https://github.com/Lersgeeb/IS513-LLP/blob/master/Propio/1.09%20-%20Resumen%20Primer%20Parcial/assets/tempoal.png)
+![Linea Temporal](https://github.com/Lersgeeb/IS513-LLP/blob/master/Propio/1.09%20-%20Resumen%20Primer%20Parcial/assets/temporal.png)
 
 Dentro de los lenguajes considerados como alto nivel podemos encontrar diferente tipos. Cada tipo depende del motivo principal por la que fueron creados dichos lenguajes, en ellos encontramos:
 
