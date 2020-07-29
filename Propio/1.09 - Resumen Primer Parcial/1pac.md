@@ -22,7 +22,11 @@ Mientras el lenguaje maquina presenta un alto nivel de dificultad para cualquier
 
 
 ### Lenguaje de alto nivel
-Los lenguajes de alto nivel vinieron a resolver el dilema planteado por los lenguajes de bajo nivel. El uso de un programa sin importar las diferencias del hardware.
+Los lenguajes de alto nivel vinieron a resolver el dilema planteado por los lenguajes de bajo nivel. El uso de un programa sin importar las diferencias del hardware. Los lenguajes de programación de alto nivel son una nueva forma totalmente accesible para la comunicación entre programador y computadora. El funcionamientos de ellos se sostienen por una herramienta de capa inferior, los compiladores, los cuales ayudan traducir código fuente a lenguaje máquina. 
+
+Existen variedades de lenguajes de programación. Cada uno nace para resolver un motivo en específico y a veces existían aquellos los cuales servían para soluciones más generales. La historia de los lenguajes de programación es reciente sin embargo han generado avances que han contribuido significativamente en la sociedad que conocemos hoy en día. 
+
+![Autómata](https://github.com/Lersgeeb/IS513-LLP/blob/master/Propio/1.09%20-%20Resumen%20Primer%20Parcial/assets/tempoal.png)
 
 Dentro de los lenguajes considerados como alto nivel podemos encontrar diferente tipos. Cada tipo depende del motivo principal por la que fueron creados dichos lenguajes, en ellos encontramos:
 
@@ -142,7 +146,30 @@ La **sintaxis** hace referencia a un conjunto de reglas que definen el orden que
 
 La **semántica** se refiere al significado de un **forma senténcial** (oración). Es la parte encargada de convertir el programa escrito a lenguaje máquina. Sin embargo es necesario que antes el código fuente haya pasado las pruebas léxicas y de sintaxis. 
 
-### La sintaxis de un Lenguaje
+## Proceso analítico de los lenguajes de Programación
+
+### Análisis Léxico
+La principal tarea de un analizador léxico es encontrar todas las palabras que coinciden con los patrones establecidos en el lenguaje. En un lenguaje de programación cada elemento es llamado lexema y la clasificación al que pertenece se denomina Token. Los tokens que se pueden encontrar en un programa abarcan desde números enteros y flotantes hasta identificadores que pueden definir palabras reservadas o nombre de variables. En términos simples un token es todo aquel elemento de un programa que se puede separar entre espacios. Esto debido a que suelen ser interpretados de forma independiente durante la fase de análisis léxico. Para analizar el léxico de un programa se deberán conocer dos diferentes enfoques 
+
+El primer enfoque se basa en hacer uso de expresiones regulares. Con la ayuda de ellos se pueden definir diferentes patrones que contiene el lenguaje a analizar. Luego se deberá implementar un programa que interprete los patrones con una precedencia adecuada(es decir probar con patrones más específicos primeros y los más abstractos al final). Y finalmente almacenar todos los lexemas encontrados con su determinada clasificación, en el caso de encontrar un token inexistente dentro del lenguaje se deberá ubicar el error.
+
+El segundo enfoque es elaborar el diseño de un diagrama de transición que represente cada lexema que puede ser representado en el lenguaje. Un diagrama de estado es un grafo dirigido, donde a partir de la entrada de un carácter el sistema cambiara de un estado a otro.  Los diagramas empleados para el análisis léxico de un lenguaje son denominados comúnmente como Autómatas finitos.
+![Autómata](https://github.com/Lersgeeb/IS513-LLP/blob/master/Propio/1.09%20-%20Resumen%20Primer%20Parcial/assets/diagrama.png)
+
+#### Automata Finito
+Un autómata finito es un sistema contenido de estados que van cambiando dependiendo a una entrada externa. Los autómatas pueden ser utilizados para el estudio de lenguajes de programación. Siendo más específicos, un autómata puede ser usado para llevar a cabo un análisis léxico. Para esto se deberá diseñar un diagrama para cada token del lenguaje e ir leyendo el programa carácter por carácter para que el estado del autómata cambie. Esto dependerá del tipo de autómata diseñado. En general se pueden encontrar dos tipos diferentes de autómatas finitos.
+
+![Autómata](https://github.com/Lersgeeb/IS513-LLP/blob/master/Propio/1.09%20-%20Resumen%20Primer%20Parcial/assets/automata.png)
+
+##### Autómata finitos deterministas (DFA)
+Formalmente se puede describir un DFA como el conjunto de un número finito de estados, un alfabeto del lenguaje, un estado inicial, un conjunto de funciones de transiciones y un conjunto de estados finales. La característica principal del DFA consiste que el sistema solo puede estar en un estado a la vez.
+
+En términos más simple un DFA puede ser representado como un grafo dirigido donde cada vértice representa un estado, donde existe un tan solo estado inicial que valga la redundancia indicara el estado donde comenzara el DFA. Desde un estado se pueden llegar a otros estados a partir de los siguientes dos elementos que conforman el DFA, el alfabeto y una función de transición. Dentro del ámbito de un lenguaje de programación, el alfabeto se puede definir como cualquier carácter aceptado por la computadora. El siguiente como su nombre lo indica será una función que tomara de parámetro este carácter y retornara el nuevo estado donde se colocara el autómata. Esta relación se puede describir visualmente como las aristas dirigidas de un estado a otro. Por ultimo están los estados finales. En cada una de ellas se puede definir que un programa ejecute una tarea en específico una vez el autómata se encuentre en un estado en particular.
+
+##### Autómatas finitos no deterministas (NFA)
+Los NFA se pueden definir de la misma manera que un DFA , sin embargo cambian dos aspectos de ellas. Un NFA cuenta con la característica de contener un conjunto de estados iniciales. Es decir que el NFA puede llegar a estar en más de un estado a la vez. El siguiente aspecto se deriva a partir de esta única característica, ya que ahora las funciones de transiciones también pueden retornar más de un estado a la vez.
+
+### Análisis Sintáctico
 
 Como antes se mencionaba existen dos maneras formales de definir la sintaxis, sin embargo ambas son muy similares por lo que se abarcaran a la misma vez y nos referiremos a ellas como **“gramática”**.
 
@@ -155,25 +182,3 @@ La estructura de una oración puede ser descrita a partir de un **árbol de pars
 
 ##### Ambigüedad
 Toda gramática que permite hacer una misma forma senténcial con dos diferentes arboles de parseo (o más) se dice que es ambigua.  Esta ambigüedad en un lenguaje natural no presentaría mucho conflicto, sin embargo para los lenguajes de programación es un grave problema. Esto es debido a que los compiladores se basan en la estructura sintáctica para elaborar la semántica del lenguaje. En pocas palabras generaría dos árboles con diferente significado semántico para una misma oración.
-
-## Proceso analítico de los lenguajes de Programación
-
-### Análisis Léxico
-La principal tarea de un analizador léxico es encontrar todas las palabras que coinciden con los patrones establecidos en el lenguaje. En un lenguaje de programación cada elemento es llamado lexema y la clasificación al que pertenece se denomina Token. Los tokens que se pueden encontrar en un programa abarcan desde números enteros y flotantes hasta identificadores que pueden definir palabras reservadas o nombre de variables. En términos simples un token es todo aquel elemento de un programa que se puede separar entre espacios. Esto debido a que suelen ser interpretados de forma independiente durante la fase de análisis léxico. Para analizar el léxico de un programa se deberán conocer dos diferentes enfoques 
-
-El primer enfoque se basa en hacer uso de expresiones regulares. Con la ayuda de ellos se pueden definir diferentes patrones que contiene el lenguaje a analizar. Luego se deberá implementar un programa que interprete los patrones con una precedencia adecuada(es decir probar con patrones más específicos primeros y los más abstractos al final). Y finalmente almacenar todos los lexemas encontrados con su determinada clasificación, en el caso de encontrar un token inexistente dentro del lenguaje se deberá ubicar el error.
-
-El segundo enfoque es elaborar el diseño de un diagrama de transición que represente cada lexema que puede ser representado en el lenguaje. Un diagrama de estado es un grafo dirigido, donde a partir de la entrada de un carácter el sistema cambiara de un estado a otro.  Los diagramas empleados para el análisis léxico de un lenguaje son denominados comúnmente como Autómatas finitos.
-
-#### Automata Finito
-![Autómata](https://github.com/Lersgeeb/IS513-LLP/blob/master/Propio/1.09%20-%20Resumen%20Primer%20Parcial/assets/automata.png)
-
-Un autómata finito es un sistema contenido de estados que van cambiando dependiendo a una entrada externa. Los autómatas pueden ser utilizados para el estudio de lenguajes de programación. Siendo más específicos, un autómata puede ser usado para llevar a cabo un análisis léxico. Para esto se deberá diseñar un diagrama para cada token del lenguaje e ir leyendo el programa carácter por carácter para que el estado del autómata cambie. Esto dependerá del tipo de autómata diseñado. En general se pueden encontrar dos tipos diferentes de autómatas finitos.
-
-##### Autómata finitos deterministas (DFA)
-Formalmente se puede describir un DFA como el conjunto de un número finito de estados, un alfabeto del lenguaje, un estado inicial, un conjunto de funciones de transiciones y un conjunto de estados finales. La característica principal del DFA consiste que el sistema solo puede estar en un estado a la vez.
-
-En términos más simple un DFA puede ser representado como un grafo dirigido donde cada vértice representa un estado, donde existe un tan solo estado inicial que valga la redundancia indicara el estado donde comenzara el DFA. Desde un estado se pueden llegar a otros estados a partir de los siguientes dos elementos que conforman el DFA, el alfabeto y una función de transición. Dentro del ámbito de un lenguaje de programación, el alfabeto se puede definir como cualquier carácter aceptado por la computadora. El siguiente como su nombre lo indica será una función que tomara de parámetro este carácter y retornara el nuevo estado donde se colocara el autómata. Esta relación se puede describir visualmente como las aristas dirigidas de un estado a otro. Por ultimo están los estados finales. En cada una de ellas se puede definir que un programa ejecute una tarea en específico una vez el autómata se encuentre en un estado en particular.
-
-##### Autómatas finitos no deterministas (NFA)
-Los NFA se pueden definir de la misma manera que un DFA , sin embargo cambian dos aspectos de ellas. Un NFA cuenta con la característica de contener un conjunto de estados iniciales. Es decir que el NFA puede llegar a estar en más de un estado a la vez. El siguiente aspecto se deriva a partir de esta única característica, ya que ahora las funciones de transiciones también pueden retornar más de un estado a la vez.
