@@ -1,3 +1,10 @@
+    Información del Estudiante
+
+    @ IS-513 Lenguaje de Programación
+    @ Gabriel Enrique Escobar Banegas
+    @ geescobar@unah.hn
+    @ 20181005735
+
 # Lenguajes de programación
 
 ## Conceptos Fundamentales
