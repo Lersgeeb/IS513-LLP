@@ -155,7 +155,7 @@ El primer enfoque se basa en hacer uso de expresiones regulares. Con la ayuda de
 
 El segundo enfoque es elaborar el diseño de un diagrama de transición que represente cada lexema que puede ser representado en el lenguaje. Un diagrama de estado es un grafo dirigido, donde a partir de la entrada de un carácter el sistema cambiara de un estado a otro.  Los diagramas empleados para el análisis léxico de un lenguaje son denominados comúnmente como Autómatas finitos.
 
-![Autómata](https://github.com/Lersgeeb/IS513-LLP/blob/master/Propio/1.09%20-%20Resumen%20Primer%20Parcial/assets/automata.png)
+![Autómata](https://github.com/Lersgeeb/IS513-LLP/blob/master/Propio/1.09%20-%20Resumen%20Primer%20Parcial/assets/diagrama.png)
 
 #### Automata Finito
 Un autómata finito es un sistema contenido de estados que van cambiando dependiendo a una entrada externa. Los autómatas pueden ser utilizados para el estudio de lenguajes de programación. Siendo más específicos, un autómata puede ser usado para llevar a cabo un análisis léxico. Para esto se deberá diseñar un diagrama para cada token del lenguaje e ir leyendo el programa carácter por carácter para que el estado del autómata cambie. Esto dependerá del tipo de autómata diseñado. En general se pueden encontrar dos tipos diferentes de autómatas finitos.
