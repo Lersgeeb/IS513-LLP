@@ -154,7 +154,8 @@ La principal tarea de un analizador léxico es encontrar todas las palabras que 
 El primer enfoque se basa en hacer uso de expresiones regulares. Con la ayuda de ellos se pueden definir diferentes patrones que contiene el lenguaje a analizar. Luego se deberá implementar un programa que interprete los patrones con una precedencia adecuada(es decir probar con patrones más específicos primeros y los más abstractos al final). Y finalmente almacenar todos los lexemas encontrados con su determinada clasificación, en el caso de encontrar un token inexistente dentro del lenguaje se deberá ubicar el error.
 
 El segundo enfoque es elaborar el diseño de un diagrama de transición que represente cada lexema que puede ser representado en el lenguaje. Un diagrama de estado es un grafo dirigido, donde a partir de la entrada de un carácter el sistema cambiara de un estado a otro.  Los diagramas empleados para el análisis léxico de un lenguaje son denominados comúnmente como Autómatas finitos.
-![Autómata](https://github.com/Lersgeeb/IS513-LLP/blob/master/Propio/1.09%20-%20Resumen%20Primer%20Parcial/assets/diagrama.png)
+
+![Autómata](https://github.com/Lersgeeb/IS513-LLP/blob/master/Propio/1.09%20-%20Resumen%20Primer%20Parcial/assets/automata.png)
 
 #### Automata Finito
 Un autómata finito es un sistema contenido de estados que van cambiando dependiendo a una entrada externa. Los autómatas pueden ser utilizados para el estudio de lenguajes de programación. Siendo más específicos, un autómata puede ser usado para llevar a cabo un análisis léxico. Para esto se deberá diseñar un diagrama para cada token del lenguaje e ir leyendo el programa carácter por carácter para que el estado del autómata cambie. Esto dependerá del tipo de autómata diseñado. En general se pueden encontrar dos tipos diferentes de autómatas finitos.
@@ -182,3 +183,14 @@ La estructura de una oración puede ser descrita a partir de un **árbol de pars
 
 ##### Ambigüedad
 Toda gramática que permite hacer una misma forma senténcial con dos diferentes arboles de parseo (o más) se dice que es ambigua.  Esta ambigüedad en un lenguaje natural no presentaría mucho conflicto, sin embargo para los lenguajes de programación es un grave problema. Esto es debido a que los compiladores se basan en la estructura sintáctica para elaborar la semántica del lenguaje. En pocas palabras generaría dos árboles con diferente significado semántico para una misma oración.
+
+## Conclusiones
+- Los lenguajes de programación han resultado ser una herramienta muy valiosa para la actual sociedad. Gracias a ella se han creado grandes avances tecnológicos que alcanzan lo impresionante al día de hoy. Todo esto gracias a la relación humano-máquina que ha creado. Posibilitando resolver todas esas tareas que en años anteriores era imposible imaginar. 
+
+- El inicio de los lenguajes de programación está poblado de lenguajes que surgieron para resolver problemas en específicos. Apoyaban las ciencias exactas con su gran capacidad de cómputo al momento de ejecutar operaciones aritméticas repetidas veces. También ofrecían un aliado poderoso a cualquier empresa con su capacidad para la manipulación de los datos y ayudaban a cualquier estudiante que deseaba dominarla para construir un mejor futuro para ellos y la sociedad. 
+
+- Existen varios lenguajes de comunicación y la creación de cada uno de ellos se vio influenciado por las tareas que resuelven, esos atributos cambiantes y que contiene cualquier lenguaje de Programación pueden ser definidos como Legibilidad, Capacidad de escritura, confiabilidad y coste. Cada uno presentara diferentes características dependiendo de la razón de su creación pero cualquier programador puede decantar a cualquiera de ellas según sus gustos y objetivos deseados.
+
+- Todo lenguaje está conformado por tres componentes fundamentales. Estás son su léxico, sintaxis y semántica. El primero representa las unidades más pequeñas de los lenguajes de programación, los constructores. El siguiente hace referencia al orden exacto que deben mantener estos constructores para la correcta escritura del lenguaje y la última se encarga de darle significado al enunciado obtenido.
+
+- A través de los tres principales componentes de los lenguajes de programación se puede a llegar a obtener cualquier lenguaje deseado, sin embargo es necesario verificar que todas ellas estén siendo usadas de la manera correcta. Es por eso importante el análisis durante la fase de compilación de un programa. Gracias a ellas se puede asegurar que el programa ejecute con las indicaciones definidas.
