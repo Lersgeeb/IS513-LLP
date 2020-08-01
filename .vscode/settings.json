@@ -45,5 +45,6 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "*.txt": "cpp"
-    }
+    },
+    "python.pythonPath": "C:\\Users\\DERCHI\\Miniconda3\\python.exe"
 }
