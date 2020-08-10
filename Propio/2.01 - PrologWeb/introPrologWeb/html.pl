@@ -22,7 +22,7 @@ page_content(_Request) -->
 			h1('Esto es el Encabezado de la Página'),
 			p('Soy un Párrafo'),
 			p(['Soy otro Párrafo pero con ', b('Negrita!'), &(copy)]),
-			p([style='font-size: 36pt', title='tooltip text'],'Soy otro Párrafo pero con Estiloo '),
+			p([style='font-size: 36pt', class='styleText'],'Soy otro Párrafo pero con Estilo'),
 			\some_included_stuff,
 	    	\more_included_stuff('Whoop Whoop!'),
 	   ]

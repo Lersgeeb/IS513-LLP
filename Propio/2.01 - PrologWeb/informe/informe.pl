@@ -2,8 +2,7 @@
 :- use_module(library(http/http_dispatch)).
 :- use_module(library(http/http_error)).
 :- use_module(library(http/html_write)).
-- use_module(library(http/http_files)).
-:- use_module(library(http/http_path)).
+:- use_module(library(http/http_parameters)).
 :- encoding(utf8).
 
 :- multifile http:location/3.
@@ -23,7 +22,8 @@ index(Request) :-
    reply_html_page(
 	   	[
 			title('Informe Prolog'),
-            link([rel='stylesheet', href='/style/style.css'])
+            link([rel='stylesheet', href='https://drive.google.com/uc?export=view&id=1thjOtX4PVZ2KRYTXhs-M8Jcv0nTYS6j4']),
+            link([rel='icon', href='https://drive.google.com/uc?export=view&id=1gQPU3KlSuYQCjeMKaMs_WD8mYC_pt1vY'])
 		],
 		[\page_content(Request)]
     ).
@@ -38,7 +38,7 @@ page_content(_Request) -->
                 [
                     div(
                         [class='imgTitle'],
-                        [img(src='/images/prolog.png')]
+                        [img(src='https://drive.google.com/uc?export=view&id=1VuHqrM1qYfJ0Y3PZjstPuQ42lpS5_cFe')]
                     ),
                     h1('Información del autor'),
                     \infostudent('Universidad:','Universidad Nacional Autónoma de Honduras'),
@@ -110,7 +110,7 @@ page_content(_Request) -->
                     nuestra red local, y podremos acceder a ella desde cualquier navegador a través del siguiente 
                     link:  http://localhost:8080/.'),
                     h2('Manejadores'),
-                    p('Para programar nuestro primer mundo primero se necesita abarcar el tema de los “Manejadores” (Handlers). Un Manejador es una
+                    p('Para programar nuestro primer "Hola Mundo" primero se necesita abarcar el tema de los “Manejadores” (Handlers). Un Manejador es una
                     herramienta que nos ofrece la librería de http para el manejo de rutas. Esto quiere decir que un manejador se encargara de retornar 
                     o ejecutar una tarea dependiendo de la ruta del servidor web donde se encuentre el cliente. Normalmente estas peticiones generadas
                     son conocidas como peticiones GET.'),
@@ -125,50 +125,51 @@ page_content(_Request) -->
                     como index.'),
                     \code_txt(\index),
                     p('El código anterior retornara al manejador un archivo de HTML el cual se mostrara en el navegador.'),
+                    h2('Generar HTML Controlado'),
                     p('Sin embargo el manipular etiquetas de HTML a través de un texto plano no es la mejor manera de hacerlo, por eso es que 
                     la librería de http también ofrece una opción con la que se puede crear etiquetas de HTML a través de la declaración de 
                     hechos.'),
-                    p([style='font-size: 36pt', title='tooltip text'],'Soy otro Párrafo pero con Estiloo '),
-                    img(src='/images/ejemplo.png'),
-                    img(src='/images/encoding.png'),
-                    a([href='http:example.com?foo=' + encode('some value with & illegal chars')], 'a link'),
-                    pre(code('Probando code')),
-                    p(class=[someclass, someotherclass], ['this has class', b('y negrita')]),
-                    \code_txt('print( "Hello World" )'),
+                    \code_txt(\htmlFact),
+                    p('En el código anterior se segmentó la cláusula y ahora se puede observar un mayor control sobre los componentes del 
+                    HTML. La primera regla se encarga de responder con un documento HTML. El documento HTML es declarado como una lista,
+                    En la primera parte de la lista se observa el uso de la etiqueta title utilizado para declarar un nombre al documento.
+                    Por lo general esta etiqueta pertenece al conjunto del Head de la estructura. En la segunda parte de la lista observamos
+                    el uso de una función que llama un fragmento de contenido. El fragmento de contenido también mantiene la misma 
+                    estructura donde etiquetas HTML son declaradas como reglas y contenidas en una lista. '),
+                    p('Con este programa dentro de nuestro servidor podemos obtener un mayor control sobre la estructura HTML y facilitarnos 
+                    el desarrollo al reutilizar fragmentos con diseño similar. '),
+                    p('Otra funcionalidad que nos ofrece el manejo de estos elementos es la declaración de atributos. Los atributos de las 
+                    etiquetas son agregados de una manera muy similar a como es declarado el cuerpo de la etiqueta.'),
+                    \code_txt(\htmlAtr),
+                    p('Regresando a los fragmentos de Contenido también cabe mencionar una herramienta que será de gran utilidad sobre todo
+                    si queremos hacer nuestras páginas web. Dentro de las funciones podemos declarar reglas de forma muy similar de como
+                    si fuera una variable. Es decir que podemos diseñar un fragmento el cual puede cambiar de acuerdo de los argumentos
+                    de la proposición. Un ejemplo es el siguiente segmento de código. El cual representa el diseño implementado en cada
+                    bloque de código en esta misma página. '),
+                    \code_txt(\funcCode),
+                    h2('Mas Rutas'),
+                    p('Como antes se mencionaba, un manejador es el responsable de llevar a cabo una tarea dada una ruta, para definir
+                    mas rutas entonces solo tendremos que definir más manejadores. Existen varias maneras de escribir la ruta de un 
+                    manejador. Se puede hacer uso de reglas haciendo una estructura jerárquica comenzando con el ROOT, añadiéndole un 
+                    argumento para indicar una subruta dentro de la ruta padre. Otra manera más simple es el agregar la dirección en 
+                    forma de cadena, de la manera convencional tal como se vería en un navegador.'),
+                    \code_txt(\paths),
+                    p('Cada tarea se encargara de ejecutar y retornar un documento HTML diferente, o al menos así debería ser. Incluso
+                    se podría crear rutas para archivos distintos como imágenes las cuales se hospedarían dentro de una ruta única en 
+                    el servidor para su uso dentro de un documento HTML gracias al componente de img y la ruta de la misma. Para esto
+                    se haría uso de una nueva herramienta brindada por la librería.'),
+                    \code_txt(\imgPaths),
+                    p('En el código superior se observan dos nuevas proposiciones. La primera, “file_search_path”, se encargara de generar
+                    una comunicación con el servidor y la carpeta contenedora. El primer argumento es el alias generado según la ruta 
+                    declarada en el segundo parámetro. La segunda proposición, http_reply_file, Ejecutara una tarea muy similar al 
+                    http_reply_html visto en programas anteriores. El primer argumento hace uso del alias de la carpeta contenedora 
+                    antes establecida, mientras que los siguientes parámetros hacen referencia a opciones o peticiones durante la ejecución
+                    de la proposición.'),
                     div([class='END'],[])
                 ]
             )
         )
     ).
-
-%-------------Rutas de Imagenes-----------------
-http:location(images, root(images), []).
-user:file_search_path(imgs, './imgs').
-
-:- http_handler(images('ejemplo.png'), ejemplo, []).
-ejemplo(Request) :-
-    http_reply_file(imgs('ejemplo.png'),[unsafe(true)],Request).
-
-:- http_handler(images('encoding.png'), encoding, []).
-encoding(Request) :-
-    http_reply_file(imgs('encoding.png'),[unsafe(true)],Request).
-
-:- http_handler(images('prolog.png'), prolog, []).
-prolog(Request) :-
-    http_reply_file(imgs('prolog.png'),[unsafe(true)],Request).
-
-:- http_handler('/favicon.ico', icon, []).
-icon(Request) :-
-    http_reply_file(imgs('prolog.ico'),[unsafe(true)],Request).
-
-%----------Ruta para estilos agregados----------------.
-http:location(style, root(style), []).
-user:file_search_path(fileStyle, './style').
-
-:- http_handler(style('style.css'), style, []).
-style(Request) :-
-    http_reply_file(fileStyle('style.css'),[unsafe(true)],Request).
-
 
 /* Iniciar Servidor de Prolog en el Puerto 8080
 :- initialization
@@ -177,7 +178,6 @@ style(Request) :-
 
 
 %Funciones para la creacionde HTML
-
 code_txt(X) -->
 	html(
        pre(
@@ -244,8 +244,7 @@ html(
 %setServer
 setServer() -->
 html(
-'
-:- use_module(library(http/thread_httpd)).
+':- use_module(library(http/thread_httpd)).
 :- use_module(library(http/http_dispatch)).
 
 :- initialization
@@ -256,17 +255,82 @@ html(
 %firstHandler
 firstHandler() -->
 html(
-'
-:- http_handler(\'/\', index, []).
-'
+    ':- http_handler(\'/\', index, []).'
 ).
 
 %index
 index() -->
 html(
+'index(_Request) :-
+    format(\'Content-Type: text/html~n~n\'),
+    format(\'<h1>Hello World!</h1>~n\').
 '
-index(_Request) :-
-        format(\'Content-Type: text/html~n~n\'),
-        format(\'<h1>Hello World!</h1>~n\').
-'
+).
+
+%htmlFact
+htmlFact() -->
+html(
+'index(Request):-
+    reply_html_page(
+        [title(\'Mi Título\')],
+        [\\page_content(Request)]
+    ).
+
+page_content(_Request) -->
+    html(
+        [
+            h1(\'Esto es el Encabezado de la Página\'),
+            p(\'Soy un Párrafo\')
+        ]
+    ).
+'   
+).
+
+%htmlAtr
+htmlAtr() -->
+html(
+'page_content(_Request) -->
+    html(
+        [
+            p([\'Soy otro Párrafo pero con \', b(\'Negrita!\')),
+            p([style=\'font-size: 36pt\', class=\'styleText\'],\'Soy otro Párrafo pero con Estilo\'),
+        ]
+    ).
+'   
+).
+
+%funcCode
+funcCode() -->
+html(
+'code_txt(X) -->
+    html(
+       pre(
+           [class = \'codetxtClass\'],
+           [code(X)]
+       )
+    ).
+'   
+).
+
+%paths
+paths() -->
+html(
+':- http_handler(root(.), index , []).
+:- http_handler(root(\'nombre\'), name, []).
+:- http_handler(\'./nombreCompleto\'), fullname, []).
+'   
+).
+
+%imgPaths
+imgPaths() -->
+html(
+'%Rutas de Imagenes
+http:location(images, root(images), []).
+user:file_search_path(imgs, \'./imgs\').
+
+:- http_handler(images(\'ejemplo.png\'), ejemplo, []).
+ejemplo(Request) :-
+    http_reply_file(imgs(\'ejemplo.png\'),[unsafe(true)],Request).
+
+'   
 ).
