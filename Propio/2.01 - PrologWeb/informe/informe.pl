@@ -15,10 +15,10 @@ server(Port) :-
 
 
 
-%Rutas
+%---------Rutas----------
 :- http_handler(root(.), index , []).
 
-%Ruta por defecto (Index)
+%--------Ruta por defecto (Index)--------
 index(Request) :-
    reply_html_page(
 	   	[
@@ -43,11 +43,12 @@ page_content(_Request) -->
                     h1('Información del autor'),
                     \infostudent('Universidad:','Universidad Nacional Autónoma de Honduras'),
                     \infostudent('Estudiante:','Gabriel Enrique Escobar Banegas'),
+                    \infostudent('Número de Cuenta:','20181005735'),
                     \infostudent('Asignatura:','Lenguajes de Programación'),
                     \infostudent('Catedrático:','José Manuel Inestroza'),
                     \infostudent('Correo:','geescobar@unah.hn'),
                     \infostudent('Fecha:','10/08/2020'),
-                    h1('Prolog un Lenguaje de Programación.'),
+                    h1('Prolog'),
                     p(['Prolog es un lenguaje de programación que está orientada a la programación lógica. Su estructura se basa en
                     dos principales elemento, hechos y clausulas. Las clausulas son proposiciones que pueden ser determinadas como 
                     falsas o verdaderas de acuerdo a un conjunto de hechos establecidos. En términos más simples prolog es un sistema 
@@ -82,10 +83,54 @@ page_content(_Request) -->
                         lenguaje el cual ayudara a manipular o elaborar estos dos elementos.'
                     ]),
                     \code_txt(\codeIntro),
+                    p('Los Hechos son una proposición que puede ser conformada por uno o un conjunto de constantes o variables.'),
+                    \code_txt(\facts),
+                    p('Las Clausula son relaciones entre Hechos estas relaciones usan algo conocido como “Pattern Matching” (Coincidencia por patrón),
+                     Los cuales verifican que hechos cumplen con una determinada regla declarada dentro una clausula.'),
+                    \code_txt(\rules),
+                    p('A partir de una herramienta como SWi-Prolog se puede correr programas escritos usando la gramática de Prolog. A partir de la 
+                    consola podemos usar la clausula anterior de dos distintas maneras.'),
+                    \code_txt(\useRules),
+                    p('En la primera manera se hace uso de la clausula para preguntarle al programa de prolog cuales Hechos hacen verdadera 
+                    la proposición. En la segunda forma preguntamos a prolog si la proposición  declarada es verdadera o falsa.'),
+                    p('Otro elemento importante de prolog son sus listas. Las listas en Prolog a principio pueden parecer semejantes a cualquier
+                    lenguaje de programación conocido en la actualidad. Estas pueden contener cualquier elemento previamente mencionado o 
+                    incluso más listas. Sin embargo cuentan con una característica especial. Cada lista tiene dos piezas que la conforman, 
+                    estas son la cabeza (Header) y la cola (Tail). En una lista la cabeza sería el primer elemento contenido y la cola seria
+                    otra lista con los demás elementos. Esta característica brinda gran apoyo durante la manipulación de una lista mediante 
+                    recursión.'),
+                    h1('Prolog para el Desarrollo Web'),
+                    p('Como antes se mencionaba Prolog es una poderosa herramienta para resolver consultas. Es por esto que llega a ser una 
+                    gran opción cuando se refiere a ser empleado para la elaboración de una página web. Gracias a prolog podemos manejar 
+                    cualquier petición generado por el cliente desde el servidor. Para esto se harán uso de la librería “http” que ofrece y
+                    está documentadas por la página oficial de prolog.'),
+                    \code_txt(\setServer),
+                    p('Mediante estas librerías se establecerá al lenguaje de programación de prolog como el principal componente del backend 
+                    del sistema. El código que se ejecuta en la zona superior será el encargado de correr el servidor en el puerto 8080 de 
+                    nuestra red local, y podremos acceder a ella desde cualquier navegador a través del siguiente 
+                    link:  http://localhost:8080/.'),
+                    h2('Manejadores'),
+                    p('Para programar nuestro primer mundo primero se necesita abarcar el tema de los “Manejadores” (Handlers). Un Manejador es una
+                    herramienta que nos ofrece la librería de http para el manejo de rutas. Esto quiere decir que un manejador se encargara de retornar 
+                    o ejecutar una tarea dependiendo de la ruta del servidor web donde se encuentre el cliente. Normalmente estas peticiones generadas
+                    son conocidas como peticiones GET.'),
+                    p('Un ejemplo de estas rutas es la misma dirección del servidor web. Cuando el cliente intenta acceder a la raíz de la 
+                    página web los manejadores son los encargado de entregarle el documento html el cual se mostrara en el navegador. Para
+                    programar un manejador se necesita usar la siguiente proposición.'),
+                    \code_txt(\firstHandler),
+                    p('La anterior proposición presenta 3 elementos, el primero se refiere la ruta del cual el manejador será responsable 
+                    responder. El segundo elemento será la tarea ejecutada y que por lo general será encargada de retornar el documento
+                     HTML o cualquier otro archivo. El último argumento se refiere al tipo de petición.'),
+                    p('El siguiente paso será desarrollar el segundo elemento mencionado, en el caso del ejemplo será definido 
+                    como index.'),
+                    \code_txt(\index),
+                    p('El código anterior retornara al manejador un archivo de HTML el cual se mostrara en el navegador.'),
+                    p('Sin embargo el manipular etiquetas de HTML a través de un texto plano no es la mejor manera de hacerlo, por eso es que 
+                    la librería de http también ofrece una opción con la que se puede crear etiquetas de HTML a través de la declaración de 
+                    hechos.'),
                     p([style='font-size: 36pt', title='tooltip text'],'Soy otro Párrafo pero con Estiloo '),
                     img(src='/images/ejemplo.png'),
                     img(src='/images/encoding.png'),
-
                     a([href='http:example.com?foo=' + encode('some value with & illegal chars')], 'a link'),
                     pre(code('Probando code')),
                     p(class=[someclass, someotherclass], ['this has class', b('y negrita')]),
@@ -96,7 +141,7 @@ page_content(_Request) -->
         )
     ).
 
-%Rutas de Imagenes
+%-------------Rutas de Imagenes-----------------
 http:location(images, root(images), []).
 user:file_search_path(imgs, './imgs').
 
@@ -116,13 +161,14 @@ prolog(Request) :-
 icon(Request) :-
     http_reply_file(imgs('prolog.ico'),[unsafe(true)],Request).
 
-%Ruta para estilos agregados.
+%----------Ruta para estilos agregados----------------.
 http:location(style, root(style), []).
 user:file_search_path(fileStyle, './style').
 
 :- http_handler(style('style.css'), style, []).
 style(Request) :-
     http_reply_file(fileStyle('style.css'),[unsafe(true)],Request).
+
 
 /* Iniciar Servidor de Prolog en el Puerto 8080
 :- initialization
@@ -149,6 +195,9 @@ infostudent(X,Y) -->
     ).
 
 
+/*--------Codes Segment--------*/
+
+%Basic Terms
 codeIntro() -->
 html(
 '/*
@@ -164,4 +213,60 @@ html(
 %   \\+    ---     Operador de negación
 %   ,     ---     Operador AND
 %   ;     ---     Operador OR'
+).
+
+%Facts
+facts() -->
+html(
+'color(rojo).
+color(verde).
+color(azul).
+color(amarillo).'
+).
+
+%Rules
+rules() -->
+html(
+'rgb(X) :-
+    X == rojo;
+    X == verde;
+    X == azul.'
+).
+
+%useRules
+useRules() -->
+html(
+'?- rgb(x).
+
+?- rgb(verde).'
+).
+
+%setServer
+setServer() -->
+html(
+'
+:- use_module(library(http/thread_httpd)).
+:- use_module(library(http/http_dispatch)).
+
+:- initialization
+    http_server(http_dispatch, [port(8080)]).
+'
+).
+
+%firstHandler
+firstHandler() -->
+html(
+'
+:- http_handler(\'/\', index, []).
+'
+).
+
+%index
+index() -->
+html(
+'
+index(_Request) :-
+        format(\'Content-Type: text/html~n~n\'),
+        format(\'<h1>Hello World!</h1>~n\').
+'
 ).
