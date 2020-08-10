@@ -2,16 +2,13 @@
 :- use_module(library(http/http_dispatch)).
 :- use_module(library(http/http_error)).
 :- use_module(library(http/html_write)).
-:- use_module(library(http/http_parameters)).
+:- use_module(library(http/http_client)).
 :- encoding(utf8).
 
-:- multifile http:location/3.
-:- dynamic   http:location/3.
 
-
-server(Port) :-
-    http_server(http_dispatch, [port(Port)]).
-
+% Iniciar Servidor de Prolog en el Puerto 8080
+:- initialization
+    http_server(http_dispatch, [port(8080)]).
 
 
 %---------Rutas----------
@@ -100,10 +97,12 @@ page_content(_Request) -->
                     otra lista con los demás elementos. Esta característica brinda gran apoyo durante la manipulación de una lista mediante 
                     recursión.'),
                     h1('Prolog para el Desarrollo Web'),
-                    p('Como antes se mencionaba Prolog es una poderosa herramienta para resolver consultas. Es por esto que llega a ser una 
-                    gran opción cuando se refiere a ser empleado para la elaboración de una página web. Gracias a prolog podemos manejar 
-                    cualquier petición generado por el cliente desde el servidor. Para esto se harán uso de la librería “http” que ofrece y
-                    está documentadas por la página oficial de prolog.'),
+                    p('Como antes se mencionaba Prolog es una poderosa herramienta para resolver consultas. Es por esto que llega a ser una gran
+                    opción cuando se refiere a ser implementado para la elaboración de una página web. Varias plataformas ya lo hacen, un 
+                    ejemplo de ello es la página de Price Charting, Price Charting es una página de venta de videojuegos clásicos, El uso 
+                    de prolog destaca al momento de manejar la base de datos de todas las características que maneja cualquiera de estos
+                    títulos. Gracias a prolog podemos manejar cualquier petición generado por el cliente desde el servidor. Para esto se 
+                    hará uso de la librería “http” que ofrece y está documentada por la página oficial de prolog.'),
                     \code_txt(\setServer),
                     p('Mediante estas librerías se establecerá al lenguaje de programación de prolog como el principal componente del backend 
                     del sistema. El código que se ejecuta en la zona superior será el encargado de correr el servidor en el puerto 8080 de 
@@ -165,17 +164,77 @@ page_content(_Request) -->
                     http_reply_html visto en programas anteriores. El primer argumento hace uso del alias de la carpeta contenedora 
                     antes establecida, mientras que los siguientes parámetros hacen referencia a opciones o peticiones durante la ejecución
                     de la proposición.'),
+                    h2('Petición Post'),
+                    p('Durante la mayor parte del informe se habló sobre las peticiones GET las cuales son generadas cuando el usuario intenta 
+                    acceder a una dirección del servidor. La única información que recibe esta petición es la ruta establecida, Es una 
+                    petición la cual está limitado a solo trabajar con lo que ya sabe.'),
+                    p('La petición POST nos ofrece una forma en la que el cliente puede mandar información que podemos estructurar con un 
+                    formulario, Esta información luego es enviada al servidor y prolog se encarga de la manipulación y ejecución de cualquier
+                    tarea que se necesite hacer con ella. El ejemplo más claro para el uso de una petición Post se da cuando el cliente 
+                    introduce información personal para la creación de una cuenta.'),
+                    p('La librería de http no se queda atrás y nos ofrece las herramientas necesarias para llevar a cabo esta tarea. Para ello
+                    es necesario construir un formulario. Un formulario es una estructura de un documento HTML el cual contienen casillas
+                    para ser rellenadas con la información respectiva del usuario. Dentro de los atributos de los usuarios tendremos que 
+                    establecer la acción que se ejecutara y el nombre de la petición.'),
+                    \code_txt(\formconstruct),
+                    p('Dentro del formulario podemos observar la existencia de dos etiquetas la cuales serán necesarias para generar las casillas 
+                    que el usuario tendrá que rellenar. Estas son Input y label. La etiqueta label indica al usuario la información que 
+                    deberá ir dentro la casilla, mientras que input hace referencia al espacio donde deberá agregarlo. Cabe destacar que 
+                    los inputs deben contener el atributo de “name”. El atributo name ayudara a facilitar la manipulación de la información 
+                    dentro el servidor, brindando la opción de acceder fácilmente al dato enviado.'),
+                    p('El siguiente paso es hacer el manejador de la respuesta que ejecutara el servidor. Para esto se seguirá el mismo proceso 
+                    que se hizo para declarar nuevas rutas.'),
+                    \code_txt(\replyconstruct),
+                    p('Dentro de la ejecución del manejador se puede observar varias nuevas proposiciones. “Member” será el encargado de brindarnos 
+                    la información de la petición entrante. Con ella se puede verificar el tipo de la petición y acceder a los datos enviados
+                    mediante el “name” definido previamente. Antes de poder acceder a los datos será necesario leer la petición mediante la
+                    proposición de “http_read_data”. Abajo se puede observar el formulario creado con su respectiva respuesta.'),
+                    \web_form,
+                    h1('Más detalles del servidor'),
+                    p('El primer detalle a mencionar será acerca de la codificación del documento HTML generado. Una instrucción el cual es importante
+                    declarar sobre todo para aquellas páginas con público hispano hablantes es el uso de la codificación utf-8. Utf-8 ayuda a 
+                    reconocer algunos caracteres especiales como las vocales con tildes. Para indicarle al programa trabajar en esta 
+                    codificación será necesario declarar la siguiente proposición.'),
+                    \code_txt(\utfcode),
+                    p('Como último punto a mencionar será el cierre del servidor. Para cerrar el servidor que se ha creado solo será necesario usar 
+                    el comando “halt.” dentro de la consola de SWI-PL.'),
+                    h1('Conclusiones'),
+                    ol(
+                        [
+                            li('El uso de prolog como un lenguaje de programación ha significado la construcción de un nuevo paradigma el cual 
+                            se enfoca en construir predicados y relaciones entre ellos para crear estructuras complejas de información. Este proceso 
+                            ha sido muy útil en ramas como inteligencia artificial y matemáticas.'),
+                            li('La sintaxis de prolog es muy distinta respecto a los lenguajes de programación convencionales. La razón tras de ello 
+                            es por el enfoque empleado al momento de construir soluciones. Mientras un lenguaje de programación convencional se 
+                            encarga de resolver un problema de manera secuencial, prolog necesita descomponer el problema y generar relaciones.'),
+                            li('La funcionalidad de prolog al momento de responder consultas le ha dado la posibilidad de ser implementado para la 
+                            creación de una plataforma web. Un servidor el cual usa prolog como su sistema de respuesta de consultas presenta una 
+                            fuerte estructura la cual no necesita miles líneas de código para considerarse segura.'),
+                            li('La librería de “http” hace de prolog una opción a tener en cuenta durante el desarrollo de una plataforma web. 
+                            En ella se puede encontrar piezas fundamentales como los manejadores, que son una herramienta poderosa que nos ayudara
+                            durante la gestión de las respuestas para la declaración de una ruta. También podemos hacer uso de etiquetas HTML en 
+                            la forma de Hechos para una manipulación más limpia y controlada de nuestros documentos HTML.'),
+                            li('La librería cuenta con muchas más herramientas de las planteadas en este informe. Se puede crear una ruta virtual 
+                            donde se pueden hospedar todas las imágenes que necesitara la página. También se puede implementar un sistema de 
+                            autenticación segura para el inicio de sesión de algún usuario. Cuenta con opciones para manejar peticiones como PUT y 
+                            DELETE , ofrece la posibilidad de implementar javascript,  permite el uso de json para la manipulación de información 
+                            y muchas cosas más. Sin lugar a dudas prolog brinda todas las herramientas necesarias para elaborar una plataforma web 
+                            rápida y segura.')
+                        ]
+                    ),
+                    h1('bibliografía'),
+                    ul(
+                        [
+                            li(a( [href='http://www.pathwayslms.com/swipltuts/html/index.html#__code_http_parameters_code'],['http://www.pathwayslms.com/swipltuts/html/index.html#__code_http_parameters_code'])),
+                            li(a( [href='https://blog.adrianistan.eu/programacion-web-prolog'],['https://blog.adrianistan.eu/programacion-web-prolog'])),
+                            li(a( [href='https://www.swi-prolog.org/'],['https://www.swi-prolog.org/']))
+                        ]
+                    ),
                     div([class='END'],[])
                 ]
             )
         )
     ).
-
-/* Iniciar Servidor de Prolog en el Puerto 8080
-:- initialization
-    http_server(http_dispatch, [port(8080)]).
-*/
-
 
 %Funciones para la creacionde HTML
 code_txt(X) -->
@@ -193,6 +252,46 @@ infostudent(X,Y) -->
             [b(X), ' ', Y]
         )
     ).
+
+
+web_form() -->
+	html(
+	    [
+            form([action='/reply', method='POST'], [
+                p([], [
+                    label([for=name],'Nombre:'),
+                    input([name=name, type=textarea])
+                ]),
+                p([], [
+                    label([for=acc],'#Cuenta:'),
+                    input([name=acc, type=number])
+                ]),
+                p([], [
+                    label([for=email],'Email:'),
+                    input([name=email, type=textarea])
+                ]),
+                p([], input([name=submit, type=submit, value='Enviar'], []))
+            ])
+        ]
+    ).
+
+
+:- http_handler('/reply', reply, []).
+reply(Request) :-
+        member(method(post), Request), !,
+        http_read_data(Request, Data, []),
+        member(email=Email,Data),
+        member(name=Name,Data),
+        member(acc=Acc,Data),
+        reply_html_page(
+            [title('Informe Prolog')],
+            [
+                h1('Descripción de los Datos Enviados.'),
+                p([b('Nombre: '), Name]),
+                p([b('#Cuenta: '), Acc]),
+                p([b('Email: '), Email])
+            ]
+        ).
 
 
 /*--------Codes Segment--------*/
@@ -331,6 +430,60 @@ user:file_search_path(imgs, \'./imgs\').
 :- http_handler(images(\'ejemplo.png\'), ejemplo, []).
 ejemplo(Request) :-
     http_reply_file(imgs(\'ejemplo.png\'),[unsafe(true)],Request).
-
 '   
 ).
+
+%formconstruct
+formconstruct() -->
+html(
+'web_form() -->
+    html(
+        [
+            form([action=\'/reply\', method=\'POST\'], [
+                p([], [
+                    label([for=name],\'Nombre:\'),
+                    input([name=name, type=textarea])
+                ]),
+                p([], [
+                    label([for=acc],\'#Cuenta:\'),
+                    input([name=acc, type=number])
+                ]),
+                p([], [
+                    label([for=email],\'Email:\'),
+                    input([name=email, type=textarea])
+                ]),
+                p([], input([name=submit, type=submit, value=\'Enviar\'], []))
+            ])
+        ]
+    ).
+'   
+).
+
+/*replyconstruct*/
+replyconstruct() -->
+html(
+':- http_handler(\'/reply\', reply, []).
+reply(Request) :-
+    member(method(post), Request), !,
+    http_read_data(Request, Data, []),
+    member(email=Email,Data),
+    member(name=Name,Data),
+    member(acc=Acc,Data),
+    reply_html_page(
+        [title(\'Informe Prolog\')],
+        [
+            h1(\'Descripción de los Datos Enviados.\'),
+            p([b(\'Nombre: \'), Name]),
+            p([b(\'#Cuenta: \'), Acc]),
+            p([b(\'Email: \'), Email])
+        ]
+    ).
+'   
+).
+
+/*utfcode*/
+utfcode() -->
+html(
+':- encoding(utf8).'   
+).
+
